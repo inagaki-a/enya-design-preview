@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>【案G1】縁側のたより｜合同会社縁家</title>
+<style>
+:root{
+  --green:#7a4b1e; --green-d:#5a3512; --green-l:#f6e8d3;
+  --white:#fffaf0; --beige:#f3e3c3; --beige-l:#fbf0d9;
+  --terra:#bf7400; --terra-d:#6a4000; --ink:#3a2e22; --mute:#77685a;
+  --hl:#ffe08a; --hl-s:#ffe9a8; --acc-s:#ffe3a6; --tint:#ead6b8;
+  --font:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);font-weight:500;color:var(--ink);line-height:1.85;font-size:16px;overflow-x:clip;
+  word-break:auto-phrase;line-break:strict;-webkit-font-smoothing:antialiased;
+  background-color:var(--white);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .48  0 0 0 0 .3  0 0 0 0 .12  0 0 0 .08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+section{position:relative;scroll-margin-top:76px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--terra-d);outline-offset:3px;border-radius:6px}
+.dark :focus-visible{outline-color:var(--hl)}
+.skip{position:absolute;left:8px;top:-60px;background:#fff;color:var(--ink);padding:10px 16px;z-index:200;border-radius:8px;font-weight:800}
+.skip:focus{top:8px}
+.proto{background:#111;color:#fff;font-size:12px;text-align:center;padding:7px 12px;line-height:1.55}
+
+/* ---------- parts ---------- */
+.tapelabel{display:inline-block;background:var(--hl);color:var(--green-d);font-weight:900;font-size:13px;letter-spacing:.12em;padding:2px 14px;border-radius:3px;transform:rotate(-2deg);box-shadow:0 2px 0 rgba(90,53,18,.15)}
+h2{font-size:27px;line-height:1.45;color:var(--green);font-weight:900;letter-spacing:.02em;margin-top:12px}
+.lead{margin-top:14px;color:var(--mute);font-size:16px}
+.mk{font-style:normal;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 7 C 30 2, 60 11, 100 6 S 170 3, 198 7' fill='none' stroke='%23ffd45e' stroke-width='9' stroke-linecap='round'/></svg>") 0 92%/100% .5em no-repeat;padding:0 .05em}
+.nb{display:inline-block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:12px 26px;border-radius:999px;font-weight:900;font-size:17px;line-height:1.35;
+  border:2.5px solid var(--green-d);background:var(--hl);color:var(--ink);box-shadow:0 4px 0 var(--green-d);transition:transform .15s,box-shadow .15s,background .15s;text-align:center}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--green-d)}
+.btn.alt{background:#fff}
+.btn .ic{width:24px;height:24px;flex:none}
+.btn.full{width:100%}
+.dark .btn{box-shadow:0 4px 0 rgba(0,0,0,.4)}
+.ic{width:40px;height:40px;display:block}
+.sc-t::before,.sc-b::after{content:"";position:absolute;left:0;right:0;height:14px;z-index:1;pointer-events:none;
+  background:radial-gradient(circle at 12px 0,var(--white) 12px,transparent 12.6px) 0 0/24px 14px repeat-x}
+.sc-t::before{top:-1px}
+.sc-b::after{bottom:-1px;transform:scaleY(-1)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,250,240,.97);border-bottom:2px dashed var(--tint)}
+.hd{display:flex;align-items:center;gap:10px;height:66px}
+.logo{font-weight:900;font-size:24px;color:var(--green);letter-spacing:.08em;line-height:1.1;margin-right:auto;display:block;padding:4px 0}
+.logo small{display:block;font-size:11px;letter-spacing:.14em;color:var(--mute);font-weight:700}
+.telbtn,.burger{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;cursor:pointer;flex:none}
+.telbtn{background:var(--hl);color:var(--terra-d);border:2.5px solid var(--green-d)}
+.telbtn svg{width:24px;height:24px}
+.burger{background:var(--green);border:0;flex-direction:column;gap:5px}
+.burger span{display:block;width:21px;height:2.5px;background:#fff;border-radius:2px;transition:.25s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.gnav,.hd .btn{display:none}
+.drawer{display:flex;flex-direction:column;position:fixed;top:66px;left:0;right:0;bottom:0;z-index:49;background:var(--white);padding:14px 22px 120px;overflow-y:auto;transform:translateY(-8px);opacity:0;visibility:hidden;transition:.22s}
+.drawer.o{transform:none;opacity:1;visibility:visible}
+.drawer li a{display:flex;align-items:center;justify-content:space-between;min-height:60px;font-size:18px;font-weight:900;color:var(--green);border-bottom:2px dotted var(--tint)}
+.drawer li a::after{content:"›";font-size:26px;color:var(--terra-d)}
+.dtel{display:block;margin-top:22px;background:var(--hl);border:2.5px solid var(--green-d);box-shadow:0 4px 0 var(--green-d);border-radius:22px;text-align:center;padding:14px;color:var(--ink)}
+.dtel small{display:block;font-size:13.5px;font-weight:700}.dtel b{font-size:28px;letter-spacing:.04em;font-weight:900}
+.dnote{margin-top:16px;font-size:14px;color:var(--mute);text-align:center}
+html.lock{overflow:hidden}
+
+/* ---------- hero ---------- */
+.hero{padding:26px 0 46px}
+.where{font-size:14px;font-weight:800;color:var(--terra-d);letter-spacing:.08em}
+.hero h1{font-size:clamp(30px,9vw,40px);line-height:1.42;font-weight:900;color:var(--green);margin:6px 0 14px;letter-spacing:.02em}
+.hero h1 span{display:block}
+.hero .sub{color:var(--ink);font-size:15.5px}
+.duo{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 4px 6px}
+.pol{display:block;position:relative;background:#fff;padding:8px 8px 12px;border-radius:5px;box-shadow:0 8px 18px rgba(90,53,18,.2)}
+.pol.p1{transform:rotate(-2.5deg)}
+.pol.p2{transform:rotate(2deg);margin-top:20px}
+.pol .img{aspect-ratio:4/4.5;overflow:hidden;border-radius:3px;background:var(--beige)}
+.pol img{width:100%;height:100%;object-fit:cover}
+.pol b{display:block;font-size:21px;font-weight:900;color:var(--green);margin-top:8px;line-height:1.3}
+.pol small{display:block;font-size:13px;color:var(--ink);line-height:1.5;font-weight:700}
+.pol .go{display:block;margin-top:2px;font-size:13px;font-weight:900;color:var(--terra-d)}
+.tape{position:absolute;top:-11px;left:50%;width:66px;height:22px;background:rgba(255,224,138,.88);transform:translateX(-50%) rotate(-3deg);box-shadow:0 1px 2px rgba(90,53,18,.2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;background:#fff;border:2px dashed var(--tint);border-radius:999px;padding:4px 14px;font-size:14px;font-weight:800}
+.chip i{font-style:normal;font-size:13px;font-weight:900;padding:1px 10px;border-radius:99px}
+.chip i.o{background:var(--green);color:#fff}
+.chip i.f{background:var(--tint);color:var(--ink)}
+.hero .cta{display:grid;gap:12px;margin-top:22px}
+.hero .who{text-align:center;font-size:14px;color:var(--mute);margin-top:12px;font-weight:700}
+
+/* ---------- philosophy ---------- */
+.phil{padding:30px 0 62px}
+.phil .card{position:relative;background:#fff;border:2.5px dashed var(--tint);border-radius:28px;padding:40px 20px 30px;text-align:center}
+.phil .tapelabel{position:absolute;top:-15px;left:50%;margin-left:-60px}
+.phil .big{font-size:clamp(40px,12vw,52px);font-weight:900;color:var(--green);line-height:1.3;letter-spacing:.05em}
+.phil p{margin-top:14px;color:var(--ink)}
+
+/* ---------- business ---------- */
+.biz{background:var(--beige-l);padding:64px 0 60px}
+.biz-list{display:grid;gap:14px;margin-top:26px}
+.bz{display:grid;grid-template-columns:92px 1fr;gap:14px;background:#fff;border-radius:20px;padding:12px;box-shadow:0 4px 0 var(--tint);align-items:start}
+.bz .th{aspect-ratio:1;border-radius:14px;overflow:hidden;margin-top:2px}
+.bz .th img{width:100%;height:100%;object-fit:cover}
+.tag{display:inline-block;font-size:12.5px;font-weight:900;color:var(--ink);background:var(--hl-s);padding:1px 12px;border-radius:99px;letter-spacing:.04em}
+.tag.c2{background:var(--acc-s)}
+.bz h3{font-size:17px;line-height:1.5;color:var(--green);margin:4px 0 2px;font-weight:900}
+.bz p{font-size:14.5px;line-height:1.75;color:var(--mute)}
+.bz .more{display:inline-block;margin-top:2px;font-size:14px;font-weight:900;color:var(--terra-d)}
+.bz .more::after{content:" →"}
+
+/* ---------- group home ---------- */
+.gh{padding:64px 0 58px}
+.vacancy{position:relative;margin-top:24px;background:#fff;border-radius:22px;padding:20px 16px 16px;border:2.5px solid var(--green-d);box-shadow:6px 6px 0 var(--tint)}
+.vacancy .pin{position:absolute;top:-11px;left:50%;margin-left:-11px;width:22px;height:22px;border-radius:50%;background:var(--terra);border:3px solid var(--green-d)}
+.vac-head{display:flex;justify-content:space-between;align-items:baseline;gap:4px 10px;flex-wrap:wrap;border-bottom:2px dashed var(--tint);padding-bottom:8px}
+.vac-head b{font-size:18px;color:var(--green);font-weight:900}
+.vac-head time{font-size:13.5px;color:var(--mute);font-weight:700}
+.vrow{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:2px dotted var(--tint)}
+.vrow .nm{font-size:20px;font-weight:900;color:var(--green);line-height:1.3}
+.vrow .sx{display:inline-block;vertical-align:middle;font-size:12.5px;background:var(--green-l);padding:0 9px;border-radius:99px;margin-left:6px;font-weight:800;color:var(--ink);line-height:1.8}
+.vrow small{display:block;font-size:13.5px;color:var(--mute);margin-top:2px;line-height:1.55}
+.vbadge{flex:none;width:86px;height:86px;border-radius:50%;display:grid;place-items:center;text-align:center;font-weight:900;line-height:1.25;transform:rotate(-7deg);border:3px double currentColor;font-size:15px}
+.vbadge b{display:block;font-size:24px;line-height:1}
+.is-open .vbadge{color:var(--terra-d);background:var(--hl-s)}
+.is-full .vbadge{color:var(--mute);font-size:19px;transform:rotate(5deg)}
+.vnote{font-size:13.5px;color:var(--mute);margin-top:12px;line-height:1.7}
+.vtel{margin-top:12px}
+.ghph{width:min(72%,270px);margin:34px auto 6px;transform:rotate(1.8deg)}
+.points{margin-top:24px;display:grid;gap:12px}
+.points li{position:relative;padding-left:38px;font-size:16px;line-height:1.75}
+.points li::before{content:"✓";position:absolute;left:0;top:1px;width:27px;height:27px;border-radius:50%;background:var(--hl);display:grid;place-items:center;font-weight:900;color:var(--green-d);font-size:15px;line-height:27px;text-align:center}
+.gh .btn{margin-top:26px}
+
+/* ---------- day ---------- */
+.day{background:var(--green);color:#fff;padding:68px 0 66px}
+.day h2{color:#fff}
+.day .lead{color:var(--tint)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:26px}
+.tiles li{background:var(--white);color:var(--ink);border-radius:16px;padding:9px 2px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1px;box-shadow:0 3px 0 rgba(0,0,0,.28)}
+.tiles li:nth-child(odd){transform:rotate(-1deg)}.tiles li:nth-child(even){transform:rotate(1deg)}
+.tiles .ic{width:32px;height:32px;color:var(--green)}
+.tiles i{font-style:normal;font-size:12px;color:var(--terra-d);font-weight:800;line-height:1.6}
+.tiles b{font-size:13.5px;line-height:1.35;font-weight:900}
+
+/* ---------- support ---------- */
+.support{padding:66px 0 56px}
+.sup{margin-top:24px;background:#fff;border-radius:24px;padding:4px 18px;box-shadow:0 4px 0 var(--tint)}
+.sup li{display:grid;grid-template-columns:54px 1fr;gap:2px 14px;padding:16px 0;border-bottom:2px dotted var(--tint);align-items:start}
+.sup li:last-child{border:0}
+.sup .ico{grid-row:span 2;width:54px;height:54px;border-radius:50%;background:var(--hl-s);display:grid;place-items:center;color:var(--green)}
+.sup .ic{width:32px;height:32px}
+.sup b{font-size:17.5px;color:var(--green);font-weight:900;line-height:1.5}
+.sup p{font-size:14.5px;color:var(--mute);line-height:1.75}
+
+/* ---------- flow ---------- */
+.flow{background:var(--beige-l);padding:64px 0 58px}
+.fl{margin-top:28px}
+.fl li{position:relative;display:grid;grid-template-columns:58px 1fr;column-gap:16px;align-items:center;padding-bottom:24px}
+.fl li:last-child{padding-bottom:0}
+.fl li:not(:last-child)::before{content:"";position:absolute;left:28px;top:62px;bottom:4px;border-left:3px dotted var(--terra)}
+.fl .ico{position:relative;width:58px;height:58px;border-radius:50%;background:#fff;border:2.5px solid var(--green);display:grid;place-items:center;color:var(--green)}
+.fl .ic{width:30px;height:30px}
+.fl .n{position:absolute;left:-7px;top:-7px;width:26px;height:26px;border-radius:50%;background:var(--terra-d);color:#fff;font-size:14px;font-weight:900;display:grid;place-items:center;line-height:1}
+.fl b{display:block;font-size:17px;color:var(--green);font-weight:900;line-height:1.5}
+.fl span.t{display:block;font-size:14px;color:var(--mute)}
+
+/* ---------- cafe ---------- */
+.cafe{padding:64px 0 58px}
+.pols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 4px 0}
+.pols .pol .img{aspect-ratio:4/4.6}
+.skills{display:flex;gap:10px;margin-top:20px}
+.skill{display:flex;align-items:center;gap:10px;background:#fff;border:2px dashed var(--tint);border-radius:999px;padding:6px 18px 6px 8px;font-weight:900;color:var(--green);min-height:48px}
+.skill .ic{width:34px;height:34px;background:var(--hl-s);border-radius:50%;padding:5px;color:var(--green)}
+.access{margin-top:22px;background:#fff;border:2px dashed var(--tint);border-radius:20px;padding:14px 18px}
+.access dl{display:grid;grid-template-columns:5.2em 1fr;gap:6px 10px;font-size:14.5px;line-height:1.65}
+.access dt{font-weight:900;color:var(--green)}
+.access a{display:inline-flex;align-items:center;min-height:44px;color:var(--terra-d);font-weight:900;text-decoration:underline;text-underline-offset:3px}
+.paths{display:grid;gap:12px;margin-top:22px}
+.path{display:flex;align-items:center;gap:12px;justify-content:space-between;background:#fff;border:2.5px solid var(--green-d);border-radius:20px;padding:14px 18px;min-height:72px;box-shadow:0 4px 0 var(--green-d)}
+.path.y{background:var(--hl)}
+.path:active{transform:translateY(3px);box-shadow:0 1px 0 var(--green-d)}
+.path small{display:block;font-size:12.5px;color:var(--terra-d);font-weight:900;letter-spacing:.08em;line-height:1.5}
+.path.y small{color:var(--green-d)}
+.path b{display:block;font-size:18px;color:var(--green);font-weight:900;line-height:1.4}
+.path.y b{color:var(--ink)}
+.path span.d{display:block;font-size:13.5px;color:var(--mute);line-height:1.6}
+.path.y span.d{color:var(--ink)}
+.path::after{content:"→";font-size:22px;font-weight:900;color:var(--green-d);flex:none}
+
+/* ---------- activities ---------- */
+.act{background:var(--beige-l);padding:64px 0 58px}
+.act .head{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.posts{display:grid;gap:12px;margin-top:24px}
+.post{display:grid;grid-template-columns:108px 1fr;gap:14px;background:#fff;border-radius:18px;padding:10px;align-items:center;box-shadow:0 3px 0 var(--tint);min-height:84px}
+.post .th{aspect-ratio:4/3;border-radius:12px;overflow:hidden}
+.post .th img{width:100%;height:100%;object-fit:cover}
+.post time{display:block;font-size:13.5px;color:var(--mute);font-weight:700;line-height:1.5}
+.post h3{font-size:16px;line-height:1.6;color:var(--ink);font-weight:900}
+.cats{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.cats .btn{min-height:50px;font-size:15px;padding:8px 20px}
+
+/* ---------- consult ---------- */
+.consult{padding:64px 0 60px}
+.cbox{background:#fff;border:2.5px solid var(--green-d);border-radius:28px;box-shadow:6px 6px 0 var(--tint);overflow:hidden}
+.cbox .ph{aspect-ratio:16/10;overflow:hidden}
+.cbox .ph img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.cbox .bd{padding:24px 20px 26px}
+.cbox ul{display:grid;gap:10px;margin-top:18px}
+.cbox li{position:relative;padding-left:30px;font-size:15.5px;line-height:1.75}
+.cbox li::before{content:"✓";position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--hl);text-align:center;line-height:24px;font-weight:900;color:var(--green-d);font-size:13px}
+.cbox .side{margin-top:22px;background:var(--green-l);border-radius:20px;padding:20px;text-align:center}
+.cbox .side p{font-weight:900;color:var(--green);margin-bottom:14px}
+
+/* ---------- contact ---------- */
+.contact{background:var(--green);color:#fff;text-align:center;padding:66px 0 60px}
+.contact h2{color:#fff}
+.contact .tapelabel{margin-bottom:2px}
+.contact .tel{display:flex;flex-direction:column;align-items:center;margin:26px auto 0;max-width:420px;padding:14px 12px 16px;border-radius:26px;background:var(--hl);color:var(--ink);border:2.5px solid var(--green-d);box-shadow:0 5px 0 rgba(0,0,0,.4);font-weight:900}
+.contact .tel small{font-size:14px;font-weight:800;line-height:1.5}
+.contact .tel b{font-size:clamp(28px,8.4vw,40px);letter-spacing:.03em;line-height:1.3}
+.contact .sub{margin-top:18px;font-size:15px;color:var(--tint)}
+.contact .cta{display:grid;gap:12px;margin:24px auto 0;max-width:420px}
+
+/* ---------- footer ---------- */
+footer{background:var(--green-d);color:var(--tint);padding:46px 0 110px;font-size:14.5px;line-height:1.85}
+footer .cols{display:grid;gap:28px}
+footer h4{color:#fff;font-size:16px;margin-bottom:6px;font-weight:900}
+footer .map li a{display:flex;align-items:center;min-height:44px;color:var(--tint);text-decoration:underline;text-underline-offset:3px}
+footer .copy{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);font-size:13.5px}
+
+/* ---------- callbar ---------- */
+.callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--white);border-top:2px dashed var(--tint);padding:9px 12px calc(9px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -6px 18px rgba(90,53,18,.1)}
+.callbar a{flex:1;min-height:52px;font-size:16px;padding:8px}
+.callbar .btn.alt{flex:.8}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* ---------- desktop ---------- */
+@media (min-width:900px){
+  body{font-size:17px}
+  .wrap{padding:0 32px}
+  .telbtn,.burger,.drawer,.callbar{display:none}
+  .hd{height:76px}
+  .gnav{display:block}
+  .gnav ul{display:flex;gap:22px;font-size:15px;font-weight:800}
+  .gnav a{display:flex;align-items:center;min-height:44px}
+  .gnav a:hover{color:var(--terra-d);text-decoration:underline;text-underline-offset:5px}
+  .hd .btn{display:inline-flex;min-height:48px;padding:8px 22px;font-size:15.5px;margin-left:10px}
+  .logo{margin-right:auto}
+  section{scroll-margin-top:84px}
+  h2{font-size:38px}
+  .lead{font-size:17px;max-width:36em}
+  .hero{padding:56px 0 78px}
+  .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;column-gap:64px;align-items:center}
+  .hero .txt{grid-column:1}
+  .hero .duo{grid-column:2;grid-row:1/span 2;margin:10px 0}
+  .hero h1{font-size:48px;white-space:nowrap}
+  .hero .sub{font-size:17.5px}
+  .hero .cta{grid-template-columns:auto auto;justify-content:start}
+  .hero .who{text-align:left}
+  .pol b{font-size:26px}.pol small{font-size:14px}
+  .phil{padding:40px 0 90px}
+  .phil .card{max-width:760px;margin:0 auto;padding:54px 40px 44px}
+  .biz,.gh,.support,.flow,.cafe,.act,.consult{padding-top:96px;padding-bottom:92px}
+  .biz-list{grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  .bz{grid-template-columns:1fr;padding:14px 14px 22px}
+  .bz .th{aspect-ratio:4/3;margin:0}
+  .bz h3{font-size:20px;margin-top:10px}.bz p{font-size:15px}
+  .bz:hover{transform:translateY(-4px)}.bz{transition:transform .2s}
+  .gh .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+  .gh .ghph{grid-column:2;grid-row:1;margin-top:20px;width:min(100%,330px)}
+  .gh .col{grid-column:1;grid-row:1}
+  .vac-head b{font-size:20px}
+  .tiles{grid-template-columns:repeat(8,1fr);gap:12px;margin-top:40px}
+  .tiles li{padding:16px 4px 14px;gap:4px}.tiles .ic{width:42px;height:42px}.tiles b{font-size:16px}.tiles i{font-size:13px}
+  .sup{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;background:none;box-shadow:none;padding:0;margin-top:40px}
+  .sup li{display:block;background:#fff;border:0;border-radius:24px;padding:26px 20px;box-shadow:0 4px 0 var(--tint)}
+  .sup li:last-child{border:0}
+  .sup .ico{margin-bottom:12px;width:62px;height:62px}.sup .ic{width:36px;height:36px}
+  .sup b{display:block;margin-bottom:6px;font-size:19px}.sup p{font-size:15px}
+  .fl{display:grid;grid-template-columns:repeat(5,1fr);margin-top:48px}
+  .fl li{display:block;text-align:center;padding:0 10px}
+  .fl li:not(:last-child)::before{left:calc(50% + 40px);right:calc(-50% + 40px);top:29px;bottom:auto;border-left:0;border-top:3px dotted var(--terra)}
+  .fl .ico{margin:0 auto 12px}
+  .cafe .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .cafe .pols{grid-column:2;grid-row:1;margin:0}
+  .cafe .col{grid-column:1;grid-row:1}
+  .paths{grid-template-columns:1fr 1fr}
+  .path{align-items:flex-start;flex-direction:column;gap:6px}.path::after{display:none}
+  .act .head{flex-direction:row;justify-content:space-between;align-items:flex-end}
+  .posts{grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+  .post{grid-template-columns:1fr;padding:12px 12px 20px;align-items:start}
+  .post .th{aspect-ratio:3/2}
+  .post h3{font-size:17px}
+  .cbox{display:grid;grid-template-columns:.85fr 1.15fr}
+  .cbox .ph{aspect-ratio:auto;min-height:100%}
+  .cbox .bd{padding:44px 44px 44px}
+  .contact{padding:90px 0 84px}
+  footer{padding-bottom:50px}
+  footer .cols{grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+}
+.logo img{height:58px;width:auto;display:block}
+@media(max-width:900px){.logo img{height:44px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="proto">案G1｜縁側のたより・手しごと感のある温かいデザイン（デザイン案）／写真は現サイトの実写素材を仮置き／掲載内容は現サイトと確認済みの情報のみ</div>
+
+<header>
+  <div class="wrap hd">
+    <a class="logo" href="#" aria-label="合同会社縁家 トップへ"><img src="img/logo-company.png" alt="合同会社縁家"></a>
+    <nav class="gnav" aria-label="メインメニュー"><ul>
+      <li><a href="#gh">障がい者グループホーム</a></li>
+      <li><a href="#cafe">B型カフェ</a></li>
+      <li><a href="#consult">開業・運営支援</a></li>
+      <li><a href="#blog">ブログ</a></li>
+      <li><a href="#">会社概要</a></li>
+      <li><a href="#">求人</a></li>
+    </ul></nav>
+    <a class="btn" href="#contact">見学・ご相談</a>
+    <a class="telbtn" href="tel:09056683401" aria-label="電話する（担当 吉田 090-5668-3401）"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h8l4 10-5 3a24 24 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4C22 40 8 26 8 10a4 4 0 0 1 4-4z"/></svg></a>
+    <button class="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer"><nav aria-label="スマートフォン用メニュー"><ul>
+  <li><a href="#gh">障がい者グループホーム</a></li>
+  <li><a href="#cafe">就労継続支援B型カフェ</a></li>
+  <li><a href="#consult">開業・運営支援</a></li>
+  <li><a href="#blog">ブログ・活動の様子</a></li>
+  <li><a href="#">会社概要</a></li>
+  <li><a href="#">求人情報</a></li>
+</ul></nav>
+<a class="dtel" href="tel:09056683401"><small>見学・ご相談（担当：吉田）</small><b>090-5668-3401</b></a>
+<p class="dnote">快宅（男性）2室 空きあり／縁宅（女性）満室</p></div>
+
+<main id="main">
+<!-- 1. 最初の画面 -->
+<section class="hero">
+  <div class="wrap">
+    <div class="txt">
+      <p class="where">大阪市鶴見区・城東区</p>
+      <h1><span><em class="mk">自分らしく</em>暮らす。</span><span><em class="mk">自分らしく</em>働く。</span></h1>
+      <p class="sub">障がいのある方が暮らす<span class="nb">「障がい者グループホーム」</span>と、就労継続支援B型のカフェ。暮らしと仕事の「選べる自由」を支えています。</p>
+    </div>
+    <div class="duo">
+      <a class="pol p1" href="#gh"><span class="tape" aria-hidden="true"></span>
+        <div class="img"><img src="img/gh-living.jpg" alt="障がい者グループホームの共有リビング" style="object-position:center 55%;filter:brightness(1.16) contrast(.97)"></div>
+        <b>暮らす</b><small>障がい者グループホーム</small><span class="go">くわしく →</span></a>
+      <a class="pol p2" href="#cafe"><span class="tape" aria-hidden="true"></span>
+        <div class="img"><img src="img/cafe-interior.jpg" alt="B型カフェの店内でコーヒーを淹れるスタッフ" style="object-position:center 45%"></div>
+        <b>働く</b><small>就労継続支援B型カフェ</small><span class="go">くわしく →</span></a>
+    </div>
+    <div class="txt">
+      <div class="chips"><a class="chip" href="#vacancy">快宅（男性）<i class="o">2室 空きあり</i></a><a class="chip" href="#vacancy">縁宅（女性）<i class="f">満室</i></a></div>
+      <div class="cta">
+        <a class="btn full" href="tel:09056683401"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h8l4 10-5 3a24 24 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4C22 40 8 26 8 10a4 4 0 0 1 4-4z"/></svg>電話で見学・ご相談</a>
+        <a class="btn alt full" href="#vacancy">入居状況を見る</a>
+      </div>
+      <p class="who">担当：吉田　090-5668-3401</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 理念 -->
+<section class="phil">
+  <div class="wrap"><div class="card">
+    <span class="tapelabel">わたしたちの理念</span>
+    <div class="big"><span class="mk">選択と開拓</span></div>
+    <p>生活の中で可能性をみつけ、サポートしながら「開拓」し、<span class="nb">「選べる自由」「選ぶ力」を育て、</span><span class="nb">未来を創造します。</span></p>
+  </div></div>
+</section>
+
+<!-- 3. 3事業 -->
+<section class="biz sc-t sc-b">
+  <div class="wrap">
+    <span class="tapelabel">3つの事業</span>
+    <h2>暮らしと仕事を、<span class="nb">3つの事業で</span>支えます</h2>
+    <div class="biz-list">
+      <a class="bz" href="#gh">
+        <div class="th"><img src="img/gh-living.jpg" alt="障がい者グループホームの共有リビング" loading="lazy" style="filter:brightness(1.16) contrast(.97)"></div>
+        <div><span class="tag">障がい者グループホーム</span>
+        <h3>「選択」できる場所で、<span class="nb">第2の家族のように</span></h3>
+        <p>生活を通して自分らしく選択し、人生の幅を広げる。失敗も成功も含めて寄り添います。男性専用・女性専用の2か所。</p>
+        <span class="more">グループホームについて</span></div>
+      </a>
+      <a class="bz" href="#cafe">
+        <div class="th"><img src="img/cafe-space.jpg" alt="食べカフェ pu-a-pu の店内" loading="lazy"></div>
+        <div><span class="tag c2">就労継続支援B型</span>
+        <h3>調理もホールも。あなたのペースで働くカフェ</h3>
+        <p>実際に調理を担当したり、ホールスタッフとして働けます。仕事内容はあなたのペースで。</p>
+        <span class="more">B型カフェについて</span></div>
+      </a>
+      <a class="bz" href="#consult">
+        <div class="th"><img src="img/cafe-kitchen.jpg" alt="厨房で働くスタッフ" loading="lazy"></div>
+        <div><span class="tag">開業・運営支援</span>
+        <h3>運営歴約10年の経験で、開業から運営まで</h3>
+        <p>グループホームの開業・運営について、他社への立ち会いや自社の立ち上げ、コンサルティングの経験があります。</p>
+        <span class="more">開業・運営支援について</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 障がい者グループホーム + 入居状況 -->
+<section class="gh" id="gh">
+  <div class="wrap">
+    <div class="col">
+      <span class="tapelabel">暮らす</span>
+      <h2>障がい者グループホーム</h2>
+      <p class="lead">専門家による生活のお手伝いをしながら、ともに生活し、ご本人の夢を一緒にかなえていく。18歳以上の身体・知的・精神に障がいのある方が対象です。</p>
+
+      <!-- ▼▼▼ 入居状況ブロック：ここが管理画面の「入居状況」入力欄から差し替わります（トップ・GHページに自動反映）▼▼▼ -->
+      <div class="vacancy" id="vacancy" aria-label="入居状況" data-source="admin:vacancy">
+        <span class="pin" aria-hidden="true"></span>
+        <div class="vac-head"><b>いまの入居状況</b><time datetime="2026-10-15">2026年10月15日 更新</time></div>
+        <ul>
+          <li class="vrow is-open" data-status="open">
+            <div><span class="nm">快宅<span class="sx">男性専用</span></span><small>鶴見緑地駅・横堤駅 徒歩7分</small></div>
+            <span class="vbadge"><span><b>2室</b>空きあり</span></span>
+          </li>
+          <li class="vrow is-full" data-status="full">
+            <div><span class="nm">縁宅<span class="sx">女性専用</span></span><small>鶴見緑地駅 徒歩9分</small></div>
+            <span class="vbadge">満室</span>
+          </li>
+        </ul>
+        <p class="vnote">入居状況の更新日：2026年10月15日　最新の状況はお電話でもご確認ください。</p>
+        <a class="btn alt full vtel" href="tel:09056683401"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h8l4 10-5 3a24 24 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4C22 40 8 26 8 10a4 4 0 0 1 4-4z"/></svg>担当 吉田　090-5668-3401</a>
+      </div>
+      <!-- ▲▲▲ ここまで ▲▲▲ -->
+
+      <ul class="points">
+        <li>食事支援：飲食店を運営する会社だからこそのこだわり</li>
+        <li>生活スキル・手続き・金銭管理を、個々のやり方でいっしょに</li>
+        <li>入居までの流れ：お問い合わせ → 見学・体験お泊り → 面談 → 手続き → 入居</li>
+      </ul>
+      <p><a class="btn" href="#">料金・利用条件・流れを見る</a></p>
+    </div>
+    <div class="pol ghph"><span class="tape" aria-hidden="true"></span>
+      <div class="img" style="aspect-ratio:4/5"><img src="img/gh-entrance.jpg" alt="障がい者グループホームの玄関と廊下" loading="lazy"></div>
+      <small style="margin-top:6px">玄関と廊下</small></div>
+  </div>
+</section>
+
+<!-- 5. 1日の流れ -->
+<section class="day dark sc-t sc-b">
+  <div class="wrap">
+    <span class="tapelabel">ある日の暮らし</span>
+    <h2>グループホームの1日</h2>
+    <p class="lead">生活スタイルによって異なります。日中は、それぞれのお仕事へ。</p>
+    <ul class="tiles">
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 34h36"/><path d="M14 34a10 10 0 0 1 20 0"/><path d="M24 12v4M10 18l3 3M38 18l-3 3M5 28h4M39 28h4"/></svg><i>朝</i><b>起床</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 24h32c0 8-6 14-16 14S8 32 8 24z"/><path d="M17 17c-2-2 2-4 0-7M24 17c-2-2 2-4 0-7M31 17c-2-2 2-4 0-7"/></svg><i>朝</i><b>あさごはん</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="16" width="32" height="22" rx="3"/><path d="M18 16v-3a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v3M8 26h32M22 26v4h4v-4"/></svg><i>日中</i><b>出勤</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="12" width="28" height="20" rx="2"/><path d="M5 38h38M18 38l2-6M30 38l-2-6"/></svg><i>日中</i><b>おしごと</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 24L24 8l18 16"/><path d="M12 21v19h24V21"/><path d="M20 40V29h8v11"/></svg><i>夕方</i><b>帰宅</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="9"/><path d="M8 8v8a3 3 0 0 0 6 0V8M11 16v24M40 8c-5 3-5 13 0 15v17"/></svg><i>夕方</i><b>よるごはん</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 26h36v4a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8z"/><path d="M12 38l-2 4M36 38l2 4M14 19c-2-2 2-4 0-7M24 19c-2-2 2-4 0-7M34 19c-2-2 2-4 0-7"/></svg><i>夜</i><b>おふろ</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M30 8a16 16 0 1 0 10 27A14 14 0 0 1 30 8z"/><path d="M38 9v6M35 12h6"/></svg><i>夜</i><b>おやすみ</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6. 4つのこだわり -->
+<section class="support" id="support">
+  <div class="wrap">
+    <span class="tapelabel">支援のこだわり</span>
+    <h2>暮らしを支える、<span class="nb">4つのこだわり</span></h2>
+    <p class="lead">選択肢が増えることは、自由が増えるということ。長い人生のためにできることを、いっしょに増やしていきます。</p>
+    <ul class="sup">
+      <li><span class="ico"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 20h32v14a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6z"/><path d="M4 25h4M40 25h4M14 20v-2h20v2M24 14v-4M20 14h8"/></svg></span><b>食事支援</b><p>飲食店も経営している私たちだからこそ。メニューを決めたり、作ったり、もりつけしたり、いっしょに学びます。</p></li>
+      <li><span class="ico"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8l-10 7 4 7 4-2v22h20V20l4 2 4-7-10-7c-1 4-4 6-8 6s-7-2-8-6z"/></svg></span><b>生活スキル</b><p>歯みがき、洗濯、洗いものなど、必要な習慣を、個々のやりやすい方法で。</p></li>
+      <li><span class="ico"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="34" rx="3"/><path d="M18 6h12v6H18zM18 27l5 5 8-9"/></svg></span><b>てつづきのお手伝い</b><p>市役所や会社などへの各種申請を、いっしょに行います。</p></li>
+      <li><span class="ico"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17"/><path d="M17 15l7 10 7-10M24 25v13M17 29h14M17 34h14"/></svg></span><b>お金のかんり</b><p>生活に大切なお金。個々に合わせた方法で、金銭管理をお手伝いします。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 7. 入居までの流れ -->
+<section class="flow sc-t sc-b" id="flow">
+  <div class="wrap">
+    <span class="tapelabel">入居までの道のり</span>
+    <h2>ご入居までの流れ</h2>
+    <ol class="fl">
+      <li><span class="ico"><span class="n">1</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="15" y="5" width="18" height="38" rx="4"/><path d="M21 37h6M21 10h6"/></svg></span><div><b>お問い合わせ</b><span class="t">お電話でどうぞ</span></div></li>
+      <li><span class="ico"><span class="n">2</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 10v30M6 30h36v10M42 30v-8a6 6 0 0 0-6-6H22v14"/><circle cx="14" cy="23" r="4"/></svg></span><div><b>見学・体験お泊り</b><span class="t">まずは雰囲気を</span></div></li>
+      <li><span class="ico"><span class="n">3</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8h22a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H18l-6 5v-5H8a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3z"/><path d="M36 19h4a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2v5l-6-5H21a3 3 0 0 1-3-3"/></svg></span><div><b>ご相談（面談）</b><span class="t">ご希望を伺います</span></div></li>
+      <li><span class="ico"><span class="n">4</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h16l10 10v26H12z"/><path d="M28 6v10h10M18 24h14M18 30h14M18 36h8"/></svg></span><div><b>入居手続き</b><span class="t">書類のお手伝いも</span></div></li>
+      <li><span class="ico"><span class="n">5</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="15" cy="24" r="8"/><circle cx="15" cy="24" r="2"/><path d="M23 24h19M36 24v7M42 24v5"/></svg></span><div><b>入居</b><span class="t">新しい暮らしへ</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. B型カフェ -->
+<section class="cafe" id="cafe">
+  <div class="wrap">
+    <div class="col">
+      <span class="tapelabel">働く</span>
+      <h2>食べカフェ pu-a-pu</h2>
+      <p class="lead">「食べることはしあわせ」。素材から空間までこだわる大阪・城東区のカフェであり、就労継続支援B型の事業所です。実際に調理を担当したり、ホールスタッフとして働けます。</p>
+      <div class="skills"><span class="skill"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 24h24v6a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8z"/><path d="M30 26h14M14 18c-2-2 2-4 0-6M22 18c-2-2 2-4 0-6"/></svg>調理</span><span class="skill"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 34a16 16 0 0 1 32 0z"/><path d="M4 38h40M24 18v-4M21 14h6"/></svg>ホール</span></div>
+      <div class="access"><dl>
+        <dt>所在地</dt><dd>大阪市城東区中央1-2-23-113</dd>
+        <dt>アクセス</dt><dd>蒲生四丁目駅1番出口 徒歩6分／京橋駅 徒歩11分</dd>
+        <dt>電話</dt><dd><a href="tel:0661808859">06-6180-8859</a></dd>
+      </dl></div>
+      <div class="paths">
+        <a class="path" href="https://pu-a-pu.llc-enya.com/"><div><small>FOR GUESTS</small><b>お客様へ</b><span class="d">お店・メニューのご案内（pu-a-pu 公式サイトへ）</span></div></a>
+        <a class="path y" href="#"><div><small>FOR USERS</small><b>B型の利用をご希望の方へ</b><span class="d">仕事内容・支援・利用の流れ・見学のご相談</span></div></a>
+      </div>
+    </div>
+    <div class="pols">
+      <div class="pol p1"><span class="tape" aria-hidden="true"></span><div class="img"><img src="img/cafe-front.jpg" alt="食べカフェ pu-a-pu の入口" loading="lazy"></div><small style="margin-top:6px">お店の入口</small></div>
+      <div class="pol p2"><span class="tape" aria-hidden="true"></span><div class="img"><img src="img/cafe-space.jpg" alt="カフェの店内の様子" loading="lazy"></div><small style="margin-top:6px">店内の様子</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 活動の様子 -->
+<section class="act sc-t sc-b" id="blog">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="tapelabel">ブログ</span><h2>活動の様子</h2></div>
+      <a class="btn alt" href="#">ブログ一覧を見る</a>
+    </div>
+    <ul class="posts">
+      <li><a class="post" href="#"><div class="th"><img src="img/ferry.jpg" alt="フェリーから見た空と海" loading="lazy"></div><div><time datetime="2026-09-24">2026.09.24</time><h3>初めてのフェリー泊まりにみんな大興奮</h3></div></a></li>
+      <li><a class="post" href="#"><div class="th"><img src="img/bbq.jpg" alt="網で食材を焼くバーベキューの様子" loading="lazy"></div><div><time datetime="2026-08-18">2026.08.18</time><h3>真夏の屋台風BBQ</h3></div></a></li>
+      <li><a class="post" href="#"><div class="th"><img src="img/field.jpg" alt="畑で収穫した野菜を持つ参加者" loading="lazy"></div><div><time datetime="2026-03-12">2026.03.12</time><h3>ウネ作りが始まりました</h3></div></a></li>
+    </ul>
+    <div class="cats">
+      <a class="btn alt" href="#">グループホーム（25件）</a>
+      <a class="btn alt" href="#">pu-a-pu（26件）</a>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 開業・運営支援 -->
+<section class="consult" id="consult">
+  <div class="wrap"><div class="cbox">
+    <div class="ph"><img src="img/cafe-kitchen.jpg" alt="厨房で働くスタッフ" loading="lazy"></div>
+    <div class="bd">
+      <span class="tapelabel">開業・運営支援</span>
+      <h2>グループホームの開業・運営支援</h2>
+      <p class="lead">グループホームの運営歴は約10年。他社への立ち会い、自社の立ち上げ、コンサルティングまで、多数の経験があります。</p>
+      <ul>
+        <li>開業時の手続き・事業計画・内装設計のアドバイス</li>
+        <li>開業後の運営、世話人の募集、トラブル対応のご相談</li>
+      </ul>
+      <div class="side"><p>あなたの想いを、形にしませんか。</p><a class="btn full" href="#">開業・運営支援について</a></div>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<!-- 11. 問い合わせ -->
+<section class="contact dark sc-t" id="contact">
+  <div class="wrap">
+    <span class="tapelabel">お問い合わせ</span>
+    <h2>見学・ご相談はお気軽に</h2>
+    <a class="tel" href="tel:09056683401"><small>電話で相談（担当：吉田）</small><b>090-5668-3401</b></a>
+    <p class="sub">合同会社縁家　／　<span class="nb">代表 06-7174-0445</span></p>
+    <div class="cta">
+      <a class="btn alt" href="tel:0671740445">代表に電話する</a>
+      <a class="btn alt" href="#">求人情報（グループホーム）</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>合同会社縁家</h4>
+        <p>大阪府大阪市鶴見区諸口6-15-33-908<br>設立：2015年10月21日　代表社員：吉田 絢子<br>電話：06-7174-0445</p>
+      </div>
+      <div>
+        <h4>事業所</h4>
+        <p>障がい者グループホーム 快宅（男性専用）<br>障がい者グループホーム 縁宅（女性専用）<br>食べカフェ pu-a-pu（大阪市城東区中央1-2-23-113）</p>
+      </div>
+      <div>
+        <h4>サイトマップ</h4>
+        <ul class="map"><li><a href="#gh">障がい者グループホーム</a></li><li><a href="#cafe">就労継続支援B型カフェ</a></li><li><a href="#consult">開業・運営支援</a></li><li><a href="#blog">ブログ</a></li><li><a href="#">会社概要</a></li><li><a href="#">求人</a></li></ul>
+      </div>
+    </div>
+    <div class="copy">© 合同会社縁家</div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn" href="tel:09056683401"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h8l4 10-5 3a24 24 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4C22 40 8 26 8 10a4 4 0 0 1 4-4z"/></svg>電話で相談</a>
+  <a class="btn alt" href="#vacancy">空室を見る</a>
+</div>
+
+<script>(function(){var b=document.querySelector(".burger"),d=document.getElementById("drawer"),r=document.documentElement;
+function t(o){if(o)d.style.top=Math.max(0,document.querySelector("header").getBoundingClientRect().bottom)+"px";b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"メニューを閉じる":"メニューを開く");b.classList.toggle("x",o);d.classList.toggle("o",o);r.classList.toggle("lock",o)}
+b.onclick=function(){t(!d.classList.contains("o"))};
+d.querySelectorAll("a").forEach(function(a){a.onclick=function(){t(false)}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&d.classList.contains("o")){t(false);b.focus()}});
+window.addEventListener("resize",function(){if(innerWidth>=900&&d.classList.contains("o"))t(false)});})();</script>
+</body>
+</html>

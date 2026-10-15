@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>【案G2】ひなたの余白｜合同会社縁家</title>
+<style>
+:root{
+  --green:#7a4b1e; --green-d:#5a3512; --green-l:#f6e8d3;
+  --white:#fffaf0; --beige:#f3e3c3; --beige-l:#fbf0d9;
+  --terra:#bf7400; --terra-d:#6a4000; --ink:#3a2e22; --mute:#77685a;
+  --hl:#ffe08a; --hl-s:#ffe9a8; --acc-s:#ffe3a6; --tint:#ead6b8;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  --serif:"Hiragino Mincho ProN","Noto Serif JP","Yu Mincho","YuMincho","MS PMincho",serif;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-weight:400;color:var(--ink);background:var(--white);line-height:1.95;font-size:16px;overflow-x:clip;
+  word-break:auto-phrase;line-break:strict;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+section{position:relative;scroll-margin-top:76px;padding:76px 0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--terra-d);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--hl)}
+.skip{position:absolute;left:8px;top:-60px;background:#fff;color:var(--ink);padding:10px 16px;z-index:200;font-weight:700}
+.skip:focus{top:8px}
+.proto{background:#111;color:#fff;font-size:12px;text-align:center;padding:7px 12px;line-height:1.55}
+.nb{display:inline-block}
+
+/* ---------- editorial parts ---------- */
+.sh{display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--ink);padding-top:10px;font-size:12.5px;letter-spacing:.16em;font-weight:700;color:var(--mute)}
+.sh .n{font-family:var(--serif);font-size:20px;letter-spacing:.04em;color:var(--terra-d);font-weight:700;line-height:1}
+h2{font-family:var(--serif);font-size:28px;line-height:1.55;color:var(--green);font-weight:700;letter-spacing:.03em;margin-top:22px}
+.lead{margin-top:16px;color:var(--mute);font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px;padding:8px 9px 8px 26px;border-radius:999px;background:var(--terra-d);color:#fff;font-weight:700;font-size:16px;line-height:1.4;letter-spacing:.04em;transition:background .2s}
+.btn::after{content:"→";flex:none;width:40px;height:40px;border-radius:50%;background:var(--hl);color:var(--ink);display:grid;place-items:center;font-size:18px;line-height:1}
+.btn .ic{width:22px;height:22px;flex:none;margin-right:-6px}
+.btn.line{background:transparent;color:var(--ink);border:1px solid var(--ink);padding:7px 8px 7px 25px}
+.btn.line::after{background:var(--ink);color:#fff}
+.btn.full{display:flex;width:100%}
+.dark .btn.line{color:#fff;border-color:rgba(255,255,255,.7)}
+.dark .btn.line::after{background:var(--hl);color:var(--ink)}
+.ic{width:36px;height:36px;display:block}
+.arch{border-radius:999px 999px 0 0;overflow:hidden}
+.arch img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,250,240,.97);border-bottom:1px solid var(--tint)}
+.hd{display:flex;align-items:center;gap:10px;height:66px}
+.logo{font-family:var(--serif);font-weight:700;font-size:25px;color:var(--green);letter-spacing:.1em;line-height:1.1;margin-right:auto;padding:4px 0}
+.logo small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--mute);font-weight:500}
+.telbtn,.burger{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;cursor:pointer;flex:none}
+.telbtn{background:var(--terra-d);color:#fff}
+.telbtn svg{width:22px;height:22px}
+.burger{background:transparent;border:1px solid var(--ink);flex-direction:column;gap:5px}
+.burger span{display:block;width:20px;height:1.5px;background:var(--ink);transition:.25s}
+.burger.x span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.gnav,.hd .btn{display:none}
+.drawer{display:flex;flex-direction:column;position:fixed;top:66px;left:0;right:0;bottom:0;z-index:49;background:var(--white);padding:10px 24px 120px;overflow-y:auto;transform:translateY(-8px);opacity:0;visibility:hidden;transition:.22s;counter-reset:d}
+.drawer.o{transform:none;opacity:1;visibility:visible}
+.drawer li{counter-increment:d}
+.drawer li a{display:flex;align-items:center;gap:14px;min-height:62px;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--green);border-bottom:1px solid var(--tint)}
+.drawer li a::before{content:"0" counter(d);font-size:13px;letter-spacing:.1em;color:var(--terra-d);font-family:var(--sans);font-weight:700;width:1.8em}
+.dtel{display:block;margin-top:24px;background:var(--terra-d);color:#fff;border-radius:6px;text-align:center;padding:16px}
+.dtel small{display:block;font-size:13.5px}.dtel b{font-family:var(--serif);font-size:29px;letter-spacing:.05em;font-weight:700}
+.dnote{margin-top:16px;font-size:14px;color:var(--mute);text-align:center}
+html.lock{overflow:hidden}
+
+/* ---------- hero ---------- */
+.hero{padding:30px 0 56px}
+.meta{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;letter-spacing:.12em;color:var(--mute);font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:10px}
+.hero h1{font-family:var(--serif);font-size:clamp(29px,9vw,40px);line-height:1.5;font-weight:700;color:var(--ink);margin:30px 0 18px;letter-spacing:.03em}
+.hero h1 span{display:block}
+.hero h1 em{font-style:normal;color:var(--terra-d);border-bottom:2px solid var(--terra)}
+.hero .sub{color:var(--ink);font-size:15.5px}
+.arches{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+.ar{display:block}
+.ar:nth-child(2){margin-top:44px}
+.ar .arch{aspect-ratio:3/4.2;background:var(--beige)}
+.ar .cap{display:block;margin-top:10px;border-top:1px solid var(--ink);padding-top:8px}
+.ar .no{font-family:var(--serif);font-size:13px;letter-spacing:.1em;color:var(--terra-d);font-weight:700}
+.ar b{display:block;font-family:var(--serif);font-size:22px;color:var(--green);line-height:1.4;font-weight:700}
+.ar small{display:block;font-size:13px;line-height:1.55;color:var(--ink)}
+.ar .go{display:block;margin-top:2px;font-size:13px;font-weight:700;color:var(--terra-d)}
+.status{display:block;margin-top:34px;border-top:1px solid var(--ink)}
+.status span{display:flex;align-items:center;gap:12px;min-height:52px;border-bottom:1px solid var(--tint);font-size:15px;font-weight:700}
+.status i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--mute);flex:none}
+.status i.on{background:var(--terra);border-color:var(--terra)}
+.status b{margin-left:auto;font-weight:700;font-size:14px;padding:2px 14px;border-radius:99px;background:var(--hl);color:var(--ink)}
+.status b.f{background:transparent;border:1px solid var(--mute);color:var(--mute)}
+.hero .cta{margin-top:26px;display:grid;gap:10px}
+.hero .who{text-align:center;font-size:14px;color:var(--mute)}
+
+/* ---------- philosophy ---------- */
+.phil{background:var(--beige-l)}
+.phil .row{display:grid;grid-template-columns:auto 1fr;gap:26px;margin-top:30px;align-items:start}
+.vt{writing-mode:vertical-rl;font-family:var(--serif);font-size:clamp(42px,12vw,56px);font-weight:700;color:var(--green);letter-spacing:.2em;line-height:1.25;padding-right:22px;border-right:1px solid var(--ink)}
+.phil p{color:var(--ink);padding-top:6px}
+.phil p span{display:block;margin-bottom:10px}
+
+/* ---------- business ---------- */
+.bl{margin-top:30px;border-top:1px solid var(--ink)}
+.bi{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--tint);align-items:start}
+.bi .th{aspect-ratio:3/4}
+.bi .lab{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--terra-d)}
+.bi .lab .n{font-family:var(--serif);font-size:14px;margin-right:8px;letter-spacing:.05em}
+.bi h3{font-family:var(--serif);font-size:18px;line-height:1.55;color:var(--green);margin:4px 0 4px;font-weight:700}
+.bi p{font-size:14.5px;line-height:1.85;color:var(--mute)}
+.bi .more{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--ink);line-height:1.5}
+
+/* ---------- group home ---------- */
+.gh .ph{width:80%;margin:30px 0 0 auto;aspect-ratio:3/3.7;background:var(--beige)}
+.ledger{margin-top:34px;border-top:2px solid var(--ink)}
+.lh{display:flex;justify-content:space-between;align-items:baseline;gap:4px 10px;flex-wrap:wrap;padding:12px 0 6px}
+.lh span{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--green)}
+.lh time{font-size:13.5px;color:var(--mute)}
+.lr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;border-top:1px solid var(--tint)}
+.lr:last-of-type{border-bottom:1px solid var(--ink)}
+.lr b{font-family:var(--serif);font-size:21px;color:var(--green);font-weight:700;line-height:1.4}
+.lr .sx{font-size:12.5px;margin-left:8px;color:var(--ink);border:1px solid var(--ink);padding:0 8px;border-radius:99px;vertical-align:middle;line-height:1.7}
+.lr small{display:block;font-size:13.5px;color:var(--mute);line-height:1.6;margin-top:2px}
+.st{flex:none;font-size:15px;font-weight:700;padding:6px 16px;border-radius:99px;background:var(--hl);color:var(--ink);white-space:nowrap}
+.is-full .st{background:transparent;border:1px solid var(--mute);color:var(--mute)}
+.vnote{font-size:13.5px;color:var(--mute);margin-top:12px;line-height:1.75}
+.vtel{margin-top:14px}
+.points{margin-top:34px;counter-reset:p;border-top:1px solid var(--ink)}
+.points li{counter-increment:p;display:grid;grid-template-columns:38px 1fr;gap:6px;padding:14px 0;border-bottom:1px solid var(--tint);font-size:15.5px;line-height:1.8}
+.points li::before{content:"0" counter(p);font-family:var(--serif);font-size:18px;color:var(--terra-d);font-weight:700;line-height:1.5}
+.gh .btn{margin-top:28px}
+
+/* ---------- day ---------- */
+.day{background:var(--green);color:#fff}
+.day .sh{border-color:rgba(255,255,255,.7);color:var(--tint)}
+.day .sh .n{color:var(--hl)}
+.day h2{color:#fff}
+.day .lead{color:var(--tint)}
+.hours{display:grid;grid-template-columns:repeat(4,1fr);margin-top:30px;border-top:1px solid rgba(255,255,255,.35);border-left:1px solid rgba(255,255,255,.35)}
+.hours li{border-right:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);text-align:center;padding:12px 2px 12px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.hours .ic{width:30px;height:30px;color:var(--hl)}
+.hours i{font-style:normal;font-size:12px;color:var(--tint);letter-spacing:.08em;line-height:1.6}
+.hours b{font-size:13.5px;line-height:1.4;font-weight:700}
+
+/* ---------- support ---------- */
+.sup{margin-top:30px;border-top:1px solid var(--ink);counter-reset:s}
+.sup li{counter-increment:s;display:grid;grid-template-columns:42px 1fr;gap:2px 6px;padding:22px 0;border-bottom:1px solid var(--tint)}
+.sup li::before{content:"0" counter(s);font-family:var(--serif);font-size:24px;color:var(--terra-d);font-weight:700;line-height:1.3;grid-row:span 2}
+.sup .t{display:flex;align-items:center;gap:10px}
+.sup .ic{width:30px;height:30px;color:var(--green)}
+.sup b{font-family:var(--serif);font-size:19px;color:var(--green);font-weight:700;line-height:1.5}
+.sup p{font-size:14.5px;color:var(--mute);line-height:1.85}
+
+/* ---------- flow ---------- */
+.flow{background:var(--beige-l)}
+.fl{margin-top:30px;border-top:1px solid var(--ink);counter-reset:f}
+.fl li{counter-increment:f;display:grid;grid-template-columns:46px 1fr 38px;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid var(--tint)}
+.fl li::before{content:counter(f);font-family:var(--serif);font-size:34px;color:var(--terra-d);font-weight:700;line-height:1;text-align:center}
+.fl b{display:block;font-size:17px;color:var(--green);font-weight:700;line-height:1.5}
+.fl .t{display:block;font-size:14px;color:var(--mute);line-height:1.6}
+.fl .ic{width:34px;height:34px;color:var(--green)}
+
+/* ---------- cafe ---------- */
+.duo2{display:grid;grid-template-columns:1.05fr 1fr;gap:14px;margin-top:30px;align-items:start}
+.duo2 .a{aspect-ratio:3/4.1;background:var(--beige)}
+.duo2 .b{aspect-ratio:3/3.6;margin-top:56px;border-radius:0 0 999px 999px;overflow:hidden;background:var(--beige)}
+.duo2 .b img{width:100%;height:100%;object-fit:cover}
+.skills{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap}
+.skill{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:17px;color:var(--green)}
+.skill .ic{width:46px;height:46px;border:1px solid var(--ink);border-radius:50%;padding:9px;color:var(--green)}
+.access{margin-top:26px;border-top:1px solid var(--ink)}
+.access div{display:grid;grid-template-columns:5.4em 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--tint);font-size:14.5px;line-height:1.7}
+.access dt{font-weight:700;color:var(--mute)}
+.access a{display:inline-flex;align-items:center;min-height:44px;color:var(--terra-d);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.paths{margin-top:26px;border-top:1px solid var(--ink)}
+.path{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:84px;padding:14px 0;border-bottom:1px solid var(--tint)}
+.path small{display:block;font-size:12px;letter-spacing:.14em;color:var(--terra-d);font-weight:700;line-height:1.6}
+.path b{display:block;font-family:var(--serif);font-size:19px;color:var(--green);font-weight:700;line-height:1.5}
+.path .d{display:block;font-size:13.5px;color:var(--mute);line-height:1.7}
+.path::after{content:"→";flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-size:18px}
+
+/* ---------- activities ---------- */
+.act{background:var(--beige-l)}
+.posts{margin-top:30px;border-top:1px solid var(--ink)}
+.post{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--tint);align-items:center;min-height:96px}
+.post .th{aspect-ratio:4/3;overflow:hidden}
+.post .th img{width:100%;height:100%;object-fit:cover}
+.post time{display:block;font-family:var(--serif);font-size:14px;color:var(--mute);letter-spacing:.06em;line-height:1.5}
+.post h3{font-size:16px;line-height:1.65;font-weight:700;color:var(--ink)}
+.cats{display:grid;gap:10px;margin-top:26px}
+
+/* ---------- consult ---------- */
+.consult .ph{aspect-ratio:4/3;margin-top:30px;overflow:hidden;border-radius:999px 999px 0 0}
+.consult .ph img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.consult ul{margin-top:22px;border-top:1px solid var(--ink)}
+.consult li{position:relative;padding:13px 0 13px 24px;border-bottom:1px solid var(--tint);font-size:15.5px;line-height:1.75}
+.consult li::before{content:"";position:absolute;left:2px;top:1.35em;width:10px;height:1.5px;background:var(--terra)}
+.consult .cta{margin-top:26px}
+.consult .cta p{font-family:var(--serif);font-weight:700;color:var(--green);font-size:17px;margin-bottom:12px}
+
+/* ---------- contact ---------- */
+.contact{background:var(--beige)}
+.contact .sh{border-color:var(--ink);color:var(--ink)}
+.contact .tel{display:block;margin-top:26px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 0;text-align:center}
+.contact .tel small{display:block;font-size:14px;color:var(--ink);font-weight:700;letter-spacing:.06em}
+.contact .tel b{display:block;font-family:var(--serif);font-size:clamp(32px,9.6vw,50px);color:var(--terra-d);letter-spacing:.04em;line-height:1.35;font-weight:700}
+.contact .sub{margin-top:16px;font-size:15px;color:var(--ink);text-align:center}
+.contact .cta{display:grid;gap:10px;margin-top:24px}
+
+/* ---------- footer ---------- */
+footer{background:var(--green-d);color:var(--tint);padding:50px 0 112px;font-size:14.5px;line-height:1.9}
+footer .cols{display:grid;gap:28px}
+footer h4{color:#fff;font-family:var(--serif);font-size:17px;margin-bottom:6px;font-weight:700;letter-spacing:.06em}
+footer .map li a{display:flex;align-items:center;min-height:44px;color:var(--tint);text-decoration:underline;text-underline-offset:3px}
+footer .copy{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.25);font-size:13.5px}
+
+.callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,250,240,.98);border-top:1px solid var(--ink);padding:9px 12px calc(9px + env(safe-area-inset-bottom));gap:10px}
+.callbar .btn{flex:1.25;min-height:54px;font-size:15.5px;padding-left:18px;padding-right:7px;gap:8px}
+.callbar .btn.line{flex:1}
+.callbar .btn::after{width:34px;height:34px;font-size:16px}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* ---------- desktop ---------- */
+@media (min-width:900px){
+  body{font-size:17px}
+  section{padding:120px 0;scroll-margin-top:84px}
+  .wrap{padding:0 40px}
+  .telbtn,.burger,.drawer,.callbar{display:none}
+  .hd{height:78px}
+  .gnav{display:block}
+  .gnav ul{display:flex;gap:24px;font-size:14.5px;font-weight:500}
+  .gnav a{display:flex;align-items:center;min-height:44px}
+  .gnav a:hover{color:var(--terra-d);text-decoration:underline;text-underline-offset:6px}
+  .hd .btn{display:inline-flex;min-height:50px;font-size:15px;margin-left:12px}
+  h2{font-size:40px}
+  .lead{font-size:17px;max-width:34em}
+  .hero{padding:44px 0 100px}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:72px}
+  .meta{grid-column:1/-1}
+  .hero .txt{grid-column:1;grid-row:2}
+  .hero .arches{grid-column:2;grid-row:2/span 2;margin:30px 0 0;gap:24px;align-self:start}
+  .hero h1{font-size:50px;white-space:nowrap}
+  .hero .sub{font-size:17px}
+  .hero .btnrow{grid-column:1;grid-row:3}
+  .hero .cta{max-width:380px}
+  .phil .row{max-width:860px;gap:56px}
+  .vt{padding-right:40px;font-size:48px}
+  .phil p{font-size:18px;padding-top:12px}
+  .bl{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;border-top:0}
+  .bi{grid-template-columns:1fr;border-top:1px solid var(--ink);gap:16px;padding:22px 0 30px}
+  .bi .th{aspect-ratio:4/4.3;width:100%}
+  .gh .wrap{display:grid;grid-template-columns:1fr 1fr;gap:0 80px}
+  .gh .head{grid-column:1/-1}
+  .gh .ph{grid-column:2;grid-row:2/span 2;width:100%;margin:0}
+  .gh .col{grid-column:1;grid-row:2}
+  .gh .col2{grid-column:1;grid-row:3}
+  .ledger{margin-top:30px}
+  .hours{grid-template-columns:repeat(8,1fr)}
+  .hours li{padding:24px 4px}.hours .ic{width:38px;height:38px}.hours b{font-size:16px}.hours i{font-size:13px}
+  .sup{display:grid;grid-template-columns:repeat(4,1fr);gap:0 36px;border-top:0}
+  .sup li{display:block;border-top:1px solid var(--ink);padding:22px 0 8px;border-bottom:0}
+  .sup li::before{display:block;margin-bottom:10px}
+  .sup .t{margin-bottom:8px}
+  .fl{display:grid;grid-template-columns:repeat(5,1fr);gap:0 28px;border-top:0}
+  .fl li{display:block;border-top:1px solid var(--ink);border-bottom:0;padding:20px 0;position:relative}
+  .fl li::before{display:block;text-align:left;margin-bottom:14px}
+  .fl .ic{position:absolute;right:0;top:20px}
+  .cafe .wrap{display:grid;grid-template-columns:1fr 1fr;gap:0 80px}
+  .cafe .head{grid-column:1/-1}
+  .cafe .duo2{grid-column:2;grid-row:2;margin:0;max-width:520px}
+  .cafe .col{grid-column:1;grid-row:2}
+  .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:0 36px;border-top:0}
+  .post{grid-template-columns:1fr;border-top:1px solid var(--ink);align-items:start;gap:12px;padding:16px 0 24px}
+  .post .th{aspect-ratio:3/2}
+  .cats{grid-template-columns:auto auto;justify-content:start;gap:12px}
+  .consult .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:0 80px}
+  .consult .head{grid-column:1/-1}
+  .consult .ph{grid-column:1;grid-row:2;margin:0}
+  .consult .col{grid-column:2;grid-row:2}
+  .contact .wrap{max-width:820px}
+  footer{padding-bottom:56px}
+  footer .cols{grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  .contact .cta{grid-template-columns:1fr 1fr}
+}
+.logo img{height:58px;width:auto;display:block}
+@media(max-width:900px){.logo img{height:44px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<div class="proto">案G2｜ひなたの余白・明るく洗練された編集デザイン（デザイン案）／写真は現サイトの実写素材を仮置き／掲載内容は現サイトと確認済みの情報のみ</div>
+
+<header>
+  <div class="wrap hd">
+    <a class="logo" href="#" aria-label="合同会社縁家 トップへ"><img src="img/logo-company.png" alt="合同会社縁家"></a>
+    <nav class="gnav" aria-label="メインメニュー"><ul>
+      <li><a href="#gh">障がい者グループホーム</a></li>
+      <li><a href="#cafe">B型カフェ</a></li>
+      <li><a href="#consult">開業・運営支援</a></li>
+      <li><a href="#blog">ブログ</a></li>
+      <li><a href="#">会社概要</a></li>
+      <li><a href="#">求人</a></li>
+    </ul></nav>
+    <a class="btn" href="#contact">見学・ご相談</a>
+    <a class="telbtn" href="tel:09056683401" aria-label="電話する（担当 吉田 090-5668-3401）"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h8l4 10-5 3a24 24 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4C22 40 8 26 8 10a4 4 0 0 1 4-4z"/></svg></a>
+    <button class="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer"><nav aria-label="スマートフォン用メニュー"><ul>
+  <li><a href="#gh">障がい者グループホーム</a></li>
+  <li><a href="#cafe">就労継続支援B型カフェ</a></li>
+  <li><a href="#consult">開業・運営支援</a></li>
+  <li><a href="#blog">ブログ・活動の様子</a></li>
+  <li><a href="#">会社概要</a></li>
+  <li><a href="#">求人情報</a></li>
+</ul></nav>
+<a class="dtel" href="tel:09056683401"><small>見学・ご相談（担当：吉田）</small><b>090-5668-3401</b></a>
+<p class="dnote">快宅（男性）2室 空きあり／縁宅（女性）満室</p></div>
+
+<main id="main">
+<!-- 最初の画面 -->
+<section class="hero">
+  <div class="wrap">
+    <p class="meta"><span>合同会社縁家</span><span>大阪市鶴見区・城東区</span></p>
+    <div class="txt">
+      <h1><span><em>自分らしく</em>暮らす。</span><span><em>自分らしく</em>働く。</span></h1>
+      <p class="sub">障がいのある方が暮らす<span class="nb">「障がい者グループホーム」</span>と、就労継続支援B型のカフェ。暮らしと仕事の「選べる自由」を支えています。</p>
+    </div>
+    <div class="arches">
+      <a class="ar" href="#gh"><div class="arch"><img src="img/gh-living.jpg" alt="障がい者グループホームの共有リビング" style="object-position:center 55%;filter:brightness(1.16) contrast(.97)"></div>
+        <span class="cap"><span class="no">01 ／ LIVE</span><b>暮らす</b><small>障がい者グループホーム</small><span class="go">くわしく →</span></span></a>
+      <a class="ar" href="#cafe"><div class="arch"><img src="img/cafe-interior.jpg" alt="B型カフェの店内でコーヒーを淹れるスタッフ" style="object-position:center 45%"></div>
+        <span class="cap"><span class="no">02 ／ WORK</span><b>働く</b><small>就労継続支援B型カフェ</small><span class="go">くわしく →</span></span></a>
+    </div>
+    <div class="txt btnrow">
+      <a class="status" href="#vacancy" aria-label="入居状況：快宅（男性）2室 空きあり、縁宅（女性）満室">
+        <span><i class="on"></i>快宅（男性）<b>2室 空きあり</b></span>
+        <span><i></i>縁宅（女性）<b class="f">満室</b></span>
+      </a>
+      <div class="cta">
+        <a class="btn full" href="tel:09056683401"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h8l4 10-5 3a24 24 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4C22 40 8 26 8 10a4 4 0 0 1 4-4z"/></svg>電話で見学・ご相談</a>
+        <p class="who">担当：吉田　090-5668-3401</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 理念 -->
+<section class="phil">
+  <div class="wrap">
+    <div class="sh"><span class="n">01</span><span>理念 ／ PHILOSOPHY</span></div>
+    <div class="row">
+      <div class="vt" aria-label="選択と開拓">選択と開拓</div>
+      <p><span>生活の中で可能性をみつけ、サポートしながら「開拓」し、</span><span>「選べる自由」「選ぶ力」を育て、未来を創造します。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 3事業 -->
+<section class="biz">
+  <div class="wrap">
+    <div class="sh"><span class="n">02</span><span>事業 ／ OUR BUSINESS</span></div>
+    <h2>3つの事業で、<br>暮らしと仕事を支えます</h2>
+    <div class="bl">
+      <a class="bi" href="#gh">
+        <div class="th arch"><img src="img/gh-living.jpg" alt="障がい者グループホームの共有リビング" loading="lazy" style="filter:brightness(1.16) contrast(.97)"></div>
+        <div><span class="lab"><span class="n">A</span>障がい者グループホーム</span>
+        <h3>「選択」できる場所で、<span class="nb">第2の家族のように</span></h3>
+        <p>生活を通して自分らしく選択し、人生の幅を広げる。失敗も成功も含めて寄り添います。男性専用・女性専用の2か所。</p>
+        <span class="more">グループホームについて</span></div>
+      </a>
+      <a class="bi" href="#cafe">
+        <div class="th arch"><img src="img/cafe-space.jpg" alt="食べカフェ pu-a-pu の店内" loading="lazy"></div>
+        <div><span class="lab"><span class="n">B</span>就労継続支援B型</span>
+        <h3>調理もホールも。あなたのペースで働くカフェ</h3>
+        <p>実際に調理を担当したり、ホールスタッフとして働けます。仕事内容はあなたのペースで。</p>
+        <span class="more">B型カフェについて</span></div>
+      </a>
+      <a class="bi" href="#consult">
+        <div class="th arch"><img src="img/cafe-kitchen.jpg" alt="厨房で働くスタッフ" loading="lazy"></div>
+        <div><span class="lab"><span class="n">C</span>開業・運営支援</span>
+        <h3>運営歴約10年の経験で、開業から運営まで</h3>
+        <p>グループホームの開業・運営について、他社への立ち会いや自社の立ち上げ、コンサルティングの経験があります。</p>
+        <span class="more">開業・運営支援について</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 障がい者グループホーム + 入居状況 -->
+<section class="gh" id="gh">
+  <div class="wrap">
+    <div class="head">
+      <div class="sh"><span class="n">03</span><span>暮らす ／ GROUP HOME</span></div>
+      <h2>障がい者グループホーム</h2>
+      <p class="lead">専門家による生活のお手伝いをしながら、ともに生活し、ご本人の夢を一緒にかなえていく。18歳以上の身体・知的・精神に障がいのある方が対象です。</p>
+    </div>
+    <div class="ph arch"><img src="img/gh-entrance.jpg" alt="障がい者グループホームの玄関と廊下" loading="lazy"></div>
+    <div class="col">
+      <!-- ▼▼▼ 入居状況ブロック：ここが管理画面の「入居状況」入力欄から差し替わります（トップ・GHページに自動反映）▼▼▼ -->
+      <div class="ledger" id="vacancy" aria-label="入居状況" data-source="admin:vacancy">
+        <div class="lh"><span>入居状況</span><time datetime="2026-10-15">2026年10月15日 更新</time></div>
+        <ul>
+          <li class="lr is-open" data-status="open">
+            <div><b>快宅</b><span class="sx">男性専用</span><small>鶴見緑地駅・横堤駅 徒歩7分</small></div>
+            <span class="st">2室 空きあり</span>
+          </li>
+          <li class="lr is-full" data-status="full">
+            <div><b>縁宅</b><span class="sx">女性専用</span><small>鶴見緑地駅 徒歩9分</small></div>
+            <span class="st">満室</span>
+          </li>
+        </ul>
+        <p class="vnote">入居状況の更新日：2026年10月15日　最新の状況はお電話でもご確認ください。</p>
+        <a class="btn line full vtel" href="tel:09056683401">担当 吉田　090-5668-3401</a>
+      </div>
+      <!-- ▲▲▲ ここまで ▲▲▲ -->
+    </div>
+    <div class="col2">
+      <ol class="points">
+        <li>食事支援：飲食店を運営する会社だからこそのこだわり</li>
+        <li>生活スキル・手続き・金銭管理を、個々のやり方でいっしょに</li>
+        <li>入居までの流れ：お問い合わせ → 見学・体験お泊り → 面談 → 手続き → 入居</li>
+      </ol>
+      <a class="btn" href="#">料金・利用条件・流れを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- 1日の流れ -->
+<section class="day dark">
+  <div class="wrap">
+    <div class="sh"><span class="n">04</span><span>1日 ／ A DAY AT HOME</span></div>
+    <h2>グループホームの1日</h2>
+    <p class="lead">生活スタイルによって異なります。日中は、それぞれのお仕事へ。</p>
+    <ul class="hours">
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 34h36"/><path d="M14 34a10 10 0 0 1 20 0"/><path d="M24 12v4M10 18l3 3M38 18l-3 3M5 28h4M39 28h4"/></svg><i>朝</i><b>起床</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 24h32c0 8-6 14-16 14S8 32 8 24z"/><path d="M17 17c-2-2 2-4 0-7M24 17c-2-2 2-4 0-7M31 17c-2-2 2-4 0-7"/></svg><i>朝</i><b>あさごはん</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="16" width="32" height="22" rx="3"/><path d="M18 16v-3a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v3M8 26h32M22 26v4h4v-4"/></svg><i>日中</i><b>出勤</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="12" width="28" height="20" rx="2"/><path d="M5 38h38M18 38l2-6M30 38l-2-6"/></svg><i>日中</i><b>おしごと</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 24L24 8l18 16"/><path d="M12 21v19h24V21"/><path d="M20 40V29h8v11"/></svg><i>夕方</i><b>帰宅</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="9"/><path d="M8 8v8a3 3 0 0 0 6 0V8M11 16v24M40 8c-5 3-5 13 0 15v17"/></svg><i>夕方</i><b>よるごはん</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 26h36v4a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8z"/><path d="M12 38l-2 4M36 38l2 4M14 19c-2-2 2-4 0-7M24 19c-2-2 2-4 0-7M34 19c-2-2 2-4 0-7"/></svg><i>夜</i><b>おふろ</b></li>
+      <li><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M30 8a16 16 0 1 0 10 27A14 14 0 0 1 30 8z"/><path d="M38 9v6M35 12h6"/></svg><i>夜</i><b>おやすみ</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4つのこだわり -->
+<section class="support" id="support">
+  <div class="wrap">
+    <div class="sh"><span class="n">05</span><span>支援 ／ SUPPORT</span></div>
+    <h2>暮らしを支える、<br>4つのこだわり</h2>
+    <p class="lead">選択肢が増えることは、自由が増えるということ。長い人生のためにできることを、いっしょに増やしていきます。</p>
+    <ul class="sup">
+      <li><div class="t"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 20h32v14a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6z"/><path d="M4 25h4M40 25h4M14 20v-2h20v2M24 14v-4M20 14h8"/></svg><b>食事支援</b></div><p>飲食店も経営している私たちだからこそ。メニューを決めたり、作ったり、もりつけしたり、いっしょに学びます。</p></li>
+      <li><div class="t"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8l-10 7 4 7 4-2v22h20V20l4 2 4-7-10-7c-1 4-4 6-8 6s-7-2-8-6z"/></svg><b>生活スキル</b></div><p>歯みがき、洗濯、洗いものなど、必要な習慣を、個々のやりやすい方法で。</p></li>
+      <li><div class="t"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="34" rx="3"/><path d="M18 6h12v6H18zM18 27l5 5 8-9"/></svg><b>てつづきのお手伝い</b></div><p>市役所や会社などへの各種申請を、いっしょに行います。</p></li>
+      <li><div class="t"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17"/><path d="M17 15l7 10 7-10M24 25v13M17 29h14M17 34h14"/></svg><b>お金のかんり</b></div><p>生活に大切なお金。個々に合わせた方法で、金銭管理をお手伝いします。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 入居までの流れ -->
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="sh"><span class="n">06</span><span>流れ ／ FLOW</span></div>
+    <h2>ご入居までの流れ</h2>
+    <ol class="fl">
+      <li><div><b>お問い合わせ</b><span class="t">お電話でどうぞ</span></div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="15" y="5" width="18" height="38" rx="4"/><path d="M21 37h6M21 10h6"/></svg></li>
+      <li><div><b>見学・体験お泊り</b><span class="t">まずは雰囲気を</span></div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 10v30M6 30h36v10M42 30v-8a6 6 0 0 0-6-6H22v14"/><circle cx="14" cy="23" r="4"/></svg></li>
+      <li><div><b>ご相談（面談）</b><span class="t">ご希望を伺います</span></div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8h22a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H18l-6 5v-5H8a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3z"/><path d="M36 19h4a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2v5l-6-5H21a3 3 0 0 1-3-3"/></svg></li>
+      <li><div><b>入居手続き</b><span class="t">書類のお手伝いも</span></div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6h16l10 10v26H12z"/><path d="M28 6v10h10M18 24h14M18 30h14M18 36h8"/></svg></li>
+      <li><div><b>入居</b><span class="t">新しい暮らしへ</span></div><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="15" cy="24" r="8"/><circle cx="15" cy="24" r="2"/><path d="M23 24h19M36 24v7M42 24v5"/></svg></li>
+    </ol>
+  </div>
+</section>
+
+<!-- B型カフェ -->
+<section class="cafe" id="cafe">
+  <div class="wrap">
+    <div class="head">
+      <div class="sh"><span class="n">07</span><span>働く ／ CAFE × 就労継続支援B型</span></div>
+      <h2>食べカフェ pu-a-pu</h2>
+    </div>
+    <div class="duo2">
+      <div class="a arch"><img src="img/cafe-front.jpg" alt="食べカフェ pu-a-pu の入口" loading="lazy"></div>
+      <div class="b"><img src="img/cafe-space.jpg" alt="カフェの店内の様子" loading="lazy"></div>
+    </div>
+    <div class="col">
+      <p class="lead">「食べることはしあわせ」。素材から空間までこだわる大阪・城東区のカフェであり、就労継続支援B型の事業所です。実際に調理を担当したり、ホールスタッフとして働けます。</p>
+      <div class="skills"><span class="skill"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 24h24v6a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8z"/><path d="M30 26h14M14 18c-2-2 2-4 0-6M22 18c-2-2 2-4 0-6"/></svg>調理</span><span class="skill"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 34a16 16 0 0 1 32 0z"/><path d="M4 38h40M24 18v-4M21 14h6"/></svg>ホール</span></div>
+      <dl class="access">
+        <div><dt>所在地</dt><dd>大阪市城東区中央1-2-23-113</dd></div>
+        <div><dt>アクセス</dt><dd>蒲生四丁目駅1番出口 徒歩6分／京橋駅 徒歩11分</dd></div>
+        <div><dt>電話</dt><dd><a href="tel:0661808859">06-6180-8859</a></dd></div>
+      </dl>
+      <div class="paths">
+        <a class="path" href="https://pu-a-pu.llc-enya.com/"><div><small>FOR GUESTS</small><b>お客様へ</b><span class="d">お店・メニューのご案内（pu-a-pu 公式サイトへ）</span></div></a>
+        <a class="path" href="#"><div><small>FOR USERS</small><b>B型の利用をご希望の方へ</b><span class="d">仕事内容・支援・利用の流れ・見学のご相談</span></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 活動の様子 -->
+<section class="act" id="blog">
+  <div class="wrap">
+    <div class="sh"><span class="n">08</span><span>活動 ／ ACTIVITIES &amp; BLOG</span></div>
+    <h2>活動の様子</h2>
+    <ul class="posts">
+      <li><a class="post" href="#"><div class="th"><img src="img/ferry.jpg" alt="フェリーから見た空と海" loading="lazy"></div><div><time datetime="2026-09-24">2026.09.24</time><h3>初めてのフェリー泊まりにみんな大興奮</h3></div></a></li>
+      <li><a class="post" href="#"><div class="th"><img src="img/bbq.jpg" alt="網で食材を焼くバーベキューの様子" loading="lazy"></div><div><time datetime="2026-08-18">2026.08.18</time><h3>真夏の屋台風BBQ</h3></div></a></li>
+      <li><a class="post" href="#"><div class="th"><img src="img/field.jpg" alt="畑で収穫した野菜を持つ参加者" loading="lazy"></div><div><time datetime="2026-03-12">2026.03.12</time><h3>ウネ作りが始まりました</h3></div></a></li>
+    </ul>
+    <div class="cats">
+      <a class="btn line" href="#">ブログ一覧を見る</a>
+      <a class="btn line" href="#">グループホーム（25件）</a>
+      <a class="btn line" href="#">pu-a-pu（26件）</a>
+    </div>
+  </div>
+</section>
+
+<!-- 開業・運営支援 -->
+<section class="consult" id="consult">
+  <div class="wrap">
+    <div class="head">
+      <div class="sh"><span class="n">09</span><span>開業・運営支援 ／ CONSULTING</span></div>
+      <h2>グループホームの<br>開業・運営支援</h2>
+    </div>
+    <div class="ph"><img src="img/cafe-kitchen.jpg" alt="厨房で働くスタッフ" loading="lazy"></div>
+    <div class="col">
+      <p class="lead">グループホームの運営歴は約10年。他社への立ち会い、自社の立ち上げ、コンサルティングまで、多数の経験があります。</p>
+      <ul>
+        <li>開業時の手続き・事業計画・内装設計のアドバイス</li>
+        <li>開業後の運営、世話人の募集、トラブル対応のご相談</li>
+      </ul>
+      <div class="cta"><p>あなたの想いを、形にしませんか。</p><a class="btn" href="#">開業・運営支援について</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- お問い合わせ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sh"><span class="n">10</span><span>お問い合わせ ／ CONTACT</span></div>
+    <h2>見学・ご相談はお気軽に</h2>
+    <a class="tel" href="tel:09056683401"><small>電話で相談（担当：吉田）</small><b>090-5668-3401</b></a>
+    <p class="sub">合同会社縁家　／　<span class="nb">代表 06-7174-0445</span></p>
+    <div class="cta">
+      <a class="btn line" href="tel:0671740445">代表に電話する</a>
+      <a class="btn line" href="#">求人情報（グループホーム）</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>合同会社縁家</h4>
+        <p>大阪府大阪市鶴見区諸口6-15-33-908<br>設立：2015年10月21日　代表社員：吉田 絢子<br>電話：06-7174-0445</p>
+      </div>
+      <div>
+        <h4>事業所</h4>
+        <p>障がい者グループホーム 快宅（男性専用）<br>障がい者グループホーム 縁宅（女性専用）<br>食べカフェ pu-a-pu（大阪市城東区中央1-2-23-113）</p>
+      </div>
+      <div>
+        <h4>サイトマップ</h4>
+        <ul class="map"><li><a href="#gh">障がい者グループホーム</a></li><li><a href="#cafe">就労継続支援B型カフェ</a></li><li><a href="#consult">開業・運営支援</a></li><li><a href="#blog">ブログ</a></li><li><a href="#">会社概要</a></li><li><a href="#">求人</a></li></ul>
+      </div>
+    </div>
+    <div class="copy">© 合同会社縁家</div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn" href="tel:09056683401">電話で相談</a>
+  <a class="btn line" href="#vacancy">空室を見る</a>
+</div>
+
+<script>(function(){var b=document.querySelector(".burger"),d=document.getElementById("drawer"),r=document.documentElement;
+function t(o){if(o)d.style.top=Math.max(0,document.querySelector("header").getBoundingClientRect().bottom)+"px";b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"メニューを閉じる":"メニューを開く");b.classList.toggle("x",o);d.classList.toggle("o",o);r.classList.toggle("lock",o)}
+b.onclick=function(){t(!d.classList.contains("o"))};
+d.querySelectorAll("a").forEach(function(a){a.onclick=function(){t(false)}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&d.classList.contains("o")){t(false);b.focus()}});
+window.addEventListener("resize",function(){if(innerWidth>=900&&d.classList.contains("o"))t(false)});})();</script>
+</body>
+</html>
