@@ -1,0 +1,56 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>pu-a-pu B-2 ブラッシュアップ3案</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;background:#f4f1ea;color:#2b2b2b;display:flex;flex-direction:column}
+.top{background:#fff;border-bottom:1px solid #ddd;flex:none}
+.bar{display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:13px}
+.bar a.back{color:#555;text-decoration:none;white-space:nowrap}
+.bar .sp{flex:1}
+.bar button.cmp{display:none;border:1px solid #8c2a3a;background:#fff;color:#8c2a3a;border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:13px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr)}
+.tabs button{border:0;border-top:3px solid transparent;background:#fff;padding:10px 4px;font-size:14px;font-weight:700;color:#666;cursor:pointer;min-height:48px;line-height:1.4}
+.tabs button small{display:block;font-size:11px;font-weight:500}
+.tabs button[aria-selected=true]{color:#8c2a3a;border-top-color:#8c2a3a;background:#fbf4e6}
+.aim{padding:8px 14px;font-size:13px;line-height:1.7;background:#fbf4e6;border-top:1px solid #eadfca}
+.aim b{color:#8c2a3a}
+.stage{flex:1;min-height:0;display:flex}
+.stage iframe{flex:1;width:100%;border:0;background:#fff}
+.stage .col{display:none}
+/* パソコン：3案を並べて見る */
+@media(min-width:1000px){
+ .bar button.cmp{display:inline-block}
+ body.cmp .tabs,body.cmp .aim{display:none}
+ body.cmp .stage{overflow:auto;gap:18px;padding:18px;justify-content:center;background:#e9e3d4}
+ body.cmp .stage iframe{display:none}
+ body.cmp .stage .col{display:flex;flex-direction:column;flex:none;width:390px}
+ .col h2{font-size:14px;margin-bottom:6px;color:#8c2a3a}
+ .col p{font-size:12px;color:#555;margin-bottom:8px;line-height:1.6;min-height:3.2em}
+ .col iframe{display:block!important;width:390px;flex:1;min-height:0;border:1px solid #bbb;border-radius:10px}
+}
+</style></head><body>
+<div class="top">
+ <div class="bar"><a class="back" href="./">← 一覧へ</a><span class="sp"></span><a id="open" href="#" target="_blank" rel="noopener" style="color:#555">この案だけ別タブで開く</a><button class="cmp" id="cmp" type="button">3案を並べて見る</button></div>
+ <div class="tabs" role="tablist">
+  <button role="tab" data-i="0">案1<small>ランチ先行</small></button>
+  <button role="tab" data-i="1">案2<small>明るい店内</small></button>
+  <button role="tab" data-i="2">案3<small>想いを添える</small></button>
+ </div>
+ <p class="aim" id="aim"></p>
+</div>
+<div class="stage" id="stage">
+ <iframe id="f" title="デザイン案"></iframe>
+ <div class="col"><h2>案1 ランチ先行</h2><p>最初の1画面で料理が分かる。平日ランチの来店につなげる。</p><iframe src="cafe-v5-b2-1-lunch.html" title="案1" loading="lazy"></iframe></div>
+ <div class="col"><h2>案2 明るい店内</h2><p>明るい店内を主役に。入りやすい・やさしい雰囲気。</p><iframe src="cafe-v5-b2-2-light.html" title="案2" loading="lazy"></iframe></div>
+ <div class="col"><h2>案3 想いを添える</h2><p>B型事業所であることを伝え、利用相談・応援の入口をつくる。</p><iframe src="cafe-v5-b2-3-voice.html" title="案3" loading="lazy"></iframe></div>
+</div>
+<script>(function(){
+var P=[
+ ["cafe-v5-b2-1-lunch.html","<b>狙い：</b>最初の1画面で「何が食べられるか」が分かる。平日のランチ来店につなげる。"],
+ ["cafe-v5-b2-2-light.html","<b>狙い：</b>案名どおり、明るい店内を主役に。入りやすい・やさしい雰囲気を出す。"],
+ ["cafe-v5-b2-3-voice.html","<b>狙い：</b>B型事業所であることを押しつけず伝え、「食べに来る／持ち帰る／利用を考える」の入口をつくる。"]];
+var tabs=document.querySelectorAll(".tabs button"),f=document.getElementById("f"),aim=document.getElementById("aim"),open=document.getElementById("open");
+function show(i){i=Math.max(0,Math.min(2,i|0));tabs.forEach(function(b,k){b.setAttribute("aria-selected",k===i)});f.src=P[i][0];aim.innerHTML=P[i][1];open.href=P[i][0];if(history.replaceState)history.replaceState(null,"","#"+(i+1))}
+tabs.forEach(function(b){b.onclick=function(){show(+b.dataset.i)}});
+document.getElementById("cmp").onclick=function(){var on=document.body.classList.toggle("cmp");this.textContent=on?"1案ずつ見る":"3案を並べて見る"};
+show((parseInt(location.hash.slice(1),10)||1)-1);
+})();</script></body></html>
