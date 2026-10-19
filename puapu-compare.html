@@ -1,0 +1,86 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>pu-a-pu サイト全体 2案の比較（v6・v7）</title><style>
+/* 置き場所：公開リポジトリ直下（puapu-site\＝v6、puapu-site-v7\＝v7 と同じ階層）。相対パスのみ。 */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:"BIZ UDPGothic","Yu Gothic",Meiryo,sans-serif;background:#f1efe9;color:#2b2b2b;display:flex;flex-direction:column}
+.top{background:#fff;border-bottom:1px solid #ddd;flex:none}
+.bar{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;padding:8px 12px;font-size:13px}
+.bar a{color:#555}
+.bar .sp{flex:1}
+.bar label{display:flex;align-items:center;gap:6px;font-weight:700}
+.bar select{font:inherit;font-size:15px;padding:6px 8px;border:1px solid #bbb;border-radius:8px;background:#fff;min-height:40px}
+.bar button.cmp{display:none;border:1px solid #333;background:#fff;color:#333;border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:13px;min-height:40px}
+.tabs{display:grid;grid-template-columns:1fr 1fr}
+.tabs button{border:0;border-top:4px solid transparent;background:#fff;padding:10px 4px;font:700 15px inherit;font-family:inherit;color:#666;cursor:pointer;min-height:54px;line-height:1.4}
+.tabs button small{display:block;font-size:11.5px;font-weight:500}
+.tabs button[data-i="0"][aria-selected=true]{color:#8c2a3a;border-top-color:#8c2a3a;background:#fbf4e6}
+.tabs button[data-i="1"][aria-selected=true]{color:#3d6a39;border-top-color:#3d6a39;background:#eef4e8}
+.aim{padding:8px 14px;font-size:13px;line-height:1.7;background:#faf8f3;border-top:1px solid #ece6d8}
+.stage{flex:1;min-height:0;display:flex}
+.stage>iframe{flex:1;width:100%;border:0;background:#fff}
+.stage .col{display:none}
+@media(min-width:900px){
+ .bar button.cmp{display:inline-block}
+ body.cmp .tabs,body.cmp .aim{display:none}
+ body.cmp .stage{overflow:auto;gap:28px;padding:18px;justify-content:center;background:#e6e1d6}
+ body.cmp .stage>iframe{display:none}
+ body.cmp .stage .col{display:flex;flex-direction:column;flex:none;width:392px}
+ .col h2{font-size:15px;margin-bottom:4px}
+ .col.v6 h2{color:#8c2a3a}.col.v7 h2{color:#3d6a39}
+ .col p{font-size:12.5px;color:#555;margin-bottom:8px;line-height:1.6;min-height:3.2em}
+ .col p a{color:#555}
+ .col iframe{display:block;width:392px;flex:1;min-height:0;border:1px solid #bbb;border-radius:12px;background:#fff}
+}
+</style></head><body class="cmp">
+<div class="top">
+ <div class="bar">
+  <a href="./">← 一覧へ</a>
+  <label>ページ <select id="pg">
+   <option value="index.html">トップ</option>
+   <option value="menu.html">ランチ・メニュー</option>
+   <option value="take-out.html">テイクアウト</option>
+   <option value="about.html">お店について</option>
+   <option value="work.html">ご利用のご案内（B型）</option>
+   <option value="access.html">アクセス・営業日</option>
+   <option value="news.html">お知らせ</option>
+   <option value="news-sample.html">お知らせ（記事）</option>
+  </select></label>
+  <span class="sp"></span>
+  <a id="open" href="#" target="_blank" rel="noopener">この案だけ別タブで開く</a>
+  <button class="cmp" id="cmp" type="button">1つずつ見る</button>
+ </div>
+ <div class="tabs" role="tablist">
+  <button role="tab" data-i="0">案A（v6）<small>両立案・ボルドー</small></button>
+  <button role="tab" data-i="1">案B（v7）<small>ナチュラル・コラージュ</small></button>
+ </div>
+ <p class="aim" id="aim"></p>
+</div>
+<div class="stage" id="stage">
+ <iframe id="f" title="デザイン案"></iframe>
+ <div class="col v6"><h2>案A（v6）両立案・ボルドー</h2><p>落ち着いた純喫茶の雰囲気。明朝体・ボルドー×金。<a id="o0" href="#" target="_blank" rel="noopener">別タブ</a></p><iframe id="f0" title="案A（v6）"></iframe></div>
+ <div class="col v7"><h2>案B（v7）ナチュラル・コラージュ</h2><p>明るい生成り×若葉×たまご色。写真を貼ったコラージュ。<a id="o1" href="#" target="_blank" rel="noopener">別タブ</a></p><iframe id="f1" title="案B（v7）"></iframe></div>
+</div>
+<script>(function(){
+var DIR=["puapu-site/","puapu-site-v7/"];
+var AIM=["<b>案A（v6）：</b>ボルドーとクリーム、明朝体。落ち着いた大人の喫茶店。最初の画面は料理、すぐ下にB型の入口（両立案）。",
+ "<b>案B（v7）：</b>生成りの紙に、若葉の緑とたまご色。写真をマスキングテープで貼ったようなコラージュと丸ゴシック。価格を前に出し、メニューは写真つき・点線つきの一覧。B型のことは若葉色の帯で、ありのままに。"];
+var tabs=document.querySelectorAll(".tabs button"),f=document.getElementById("f"),aim=document.getElementById("aim"),open=document.getElementById("open"),pg=document.getElementById("pg");
+var cur=0;
+function url(i){return DIR[i]+pg.value}
+function render(){
+ tabs.forEach(function(b,k){b.setAttribute("aria-selected",k===cur)});
+ aim.innerHTML=AIM[cur];open.href=url(cur);
+ if(document.body.classList.contains("cmp")&&window.matchMedia("(min-width:900px)").matches){
+  ["f0","f1"].forEach(function(id,k){var el=document.getElementById(id);if(el.getAttribute("src")!==url(k))el.src=url(k);document.getElementById("o"+k).href=url(k)});
+ }else if(f.getAttribute("src")!==url(cur)){f.src=url(cur)}
+ if(history.replaceState)history.replaceState(null,"","#"+(cur+1)+"-"+pg.value.replace(".html",""));
+}
+tabs.forEach(function(b){b.onclick=function(){cur=+b.dataset.i;render()}});
+pg.onchange=render;
+var cb=document.getElementById("cmp");
+cb.onclick=function(){var on=document.body.classList.toggle("cmp");cb.textContent=on?"1つずつ見る":"2つを並べて見る";render()};
+window.addEventListener("resize",render);
+var h=location.hash.slice(1).split("-");cur=(parseInt(h[0],10)||1)-1;if(cur<0||cur>1)cur=0;
+if(h[1]){var v=h.slice(1).join("-")+".html";for(var i=0;i<pg.options.length;i++)if(pg.options[i].value===v)pg.value=v}
+render();
+})();</script></body></html>
