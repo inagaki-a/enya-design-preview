@@ -13,11 +13,13 @@
 
   d.querySelectorAll("main > section:not(.hero) > .wrap").forEach(function(w){
     Array.prototype.forEach.call(w.children,function(c,i){
-      if(c.matches("ul,ol")&&c.querySelector("li")){
+      if(c.matches("ul,ol,dl,.bl,.bloglist")&&c.children.length>1){
         Array.prototype.forEach.call(c.children,function(li,j){add(li,j)});
       }else add(c,Math.min(i,2));
     });
   });
+  /* 記事ページ：本文の段落を1つずつ */
+  d.querySelectorAll(".art .body > *").forEach(function(e,i){add(e,i%3)});
   /* 記事ページなど .wrap 以外の構成にも対応 */
   if(!list.length){d.querySelectorAll("main h1,main h2,main p,main img,main li").forEach(function(e,i){add(e,i%4)})}
 

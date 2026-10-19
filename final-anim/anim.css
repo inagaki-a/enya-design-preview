@@ -51,3 +51,32 @@ header.sc{box-shadow:0 4px 18px rgba(60,40,10,.10)}
   .js .hero *{animation:none!important}
   .js .hero .ar .arch{clip-path:none}
 }
+
+/* ---- サブページ（グループホーム・B型・開業支援・会社概要・求人・ブログ）の最初の画面 ---- */
+.js .phero .bc{animation:up .8s var(--ease) both .05s}
+.js .phero .sh{animation:up .8s var(--ease) both .2s}
+.js .phero h1{animation:up 1s var(--ease) both .35s}
+.js .phero .lead{animation:up 1s var(--ease) both .6s}
+.js .phero .cta{animation:up .9s var(--ease) both .85s}
+.js .phero .ph{overflow:hidden;animation:arch 1.2s var(--ease) both .5s}
+.js .phero .ph img{animation:settle 1.8s var(--ease) both .5s}
+
+/* ---- 記事ページ ---- */
+.js .art .bc{animation:up .8s var(--ease) both .05s}
+.js .art .hd2{animation:up .8s var(--ease) both .2s}
+.js .art h1{animation:up 1s var(--ease) both .35s}
+.js .art .eye{animation:arch 1.2s var(--ease) both .55s}
+.js .art .eye img{animation:settle 1.8s var(--ease) both .55s}
+
+/* ---- ブログ・写真のホバー ---- */
+.feat .m img,.bloglist .post .th img{transition:transform .8s var(--ease)}
+.feat a:hover .m img,.bloglist .post:hover .th img{transform:scale(1.06)}
+.bloglist .post .th,.feat .m{overflow:hidden}
+.bloglist .post{transition:transform .3s var(--ease)}
+.bloglist .post:hover{transform:translateY(-3px)}
+.kv>div{transition:background .3s}
+
+@media (prefers-reduced-motion:reduce){
+  .js .phero *,.js .art *{animation:none!important}
+  .js .phero .ph,.js .art .eye{clip-path:none}
+}
