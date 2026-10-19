@@ -328,8 +328,114 @@ footer.site .cp{margin-top:14px;font-size:12px;opacity:.75}
   .nl li{flex-direction:column;align-items:flex-start;gap:0;padding:10px 4px}
   .nl a{min-height:0}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .tiles.four{grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.tiles.four{grid-template-columns:1fr 1fr}}
 h2,h3,.doors b,.flow b{word-break:auto-phrase;text-wrap:balance}
 @media(max-width:900px){.tiles span,.tiles figcaption{letter-spacing:.02em;font-size:13px;padding:8px 4px}}
+
+/* =========================================================
+   動き（上品・控えめに。transform と opacity だけを動かす）
+   - スクロールで現れる .rv は、JS が「画面より下にある要素」にだけ付ける
+     → JS が動かない・動きを減らす設定のときは、何も隠れない
+   - 最初の画面の登場はCSSのアニメーション（最後は必ず表示された状態で止まる）
+   ========================================================= */
+:root{--ease:cubic-bezier(.22,.7,.2,1)}
+@keyframes pp-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pp-fade{from{opacity:0}to{opacity:1}}
+@keyframes pp-settle{from{transform:scale(1.06)}to{transform:none}}
+@keyframes pp-gem{from{opacity:0;transform:scale(.2) rotate(-90deg)}to{opacity:1;transform:none}}
+@keyframes pp-bar{from{transform:translateY(100%)}to{transform:none}}
+@keyframes pp-open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes pp-turn{from{transform:rotate(-180deg)}to{transform:none}}
+
+/* ---- ヘッダー：スクロールするとやわらかい影 ---- */
+header.site{transition:box-shadow .3s}
+header.site.sc{box-shadow:0 6px 18px rgba(43,26,26,.22)}
+.gnav a{position:relative;transition:color .25s}
+.gnav a:not([aria-current])::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .35s var(--ease)}
+.gnav a:hover::after{transform:scaleX(1)}
+
+/* ---- 最初の画面（トップ） ---- */
+.hero1 .tx>*{animation:pp-up .9s var(--ease) both}
+.hero1 .sub{animation-delay:.1s}
+.hero1 h1{animation-delay:.25s}
+.hero1 .tx>p{animation-delay:.45s}
+.hero1 .cta{animation-delay:.6s}
+.hero1 .ph{animation:pp-fade 1.1s ease both .05s}
+.info li{animation:pp-up .8s var(--ease) both}
+.info li:nth-child(1){animation-delay:.7s}.info li:nth-child(2){animation-delay:.8s}.info li:nth-child(3){animation-delay:.9s}
+
+/* ---- 下層ページの見出し ---- */
+.phero .tx>*{animation:pp-up .85s var(--ease) both}
+.phero .tx>:nth-child(2){animation-delay:.1s}
+.phero .tx>:nth-child(3){animation-delay:.2s}
+.phero .tx>:nth-child(4){animation-delay:.32s}
+.phero .tx>:nth-child(n+5){animation-delay:.44s}
+.phero .ph{animation:pp-fade 1.1s ease both .05s}
+.art>.bc,.art>.date,.art>h1{animation:pp-up .85s var(--ease) both}
+.art>.date{animation-delay:.08s}.art>h1{animation-delay:.16s}
+
+/* ---- スクロールで順番にふわっと表示（JSが付ける） ---- */
+/* （.rv.rv は、カードなどの個別の transition 指定より優先させるため。表示が終わると JS が .rv を外す） */
+.rv.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.rv.rv.in{opacity:1;transform:none}
+/* 見出しの金の◆は、見出しが現れたあとに回りながら出る */
+.rv.in>h2::after,h2.rv.in::after{animation:pp-gem .7s var(--ease) both .3s}
+
+/* ---- 写真：ゆるいズーム（スマホの最初の画面は枠がないので、写真がゆっくり落ち着く） ---- */
+.tiles img{transition:transform .9s var(--ease)}
+.tiles a:hover img{transform:scale(1.05)}
+.ngrid .m img{transition:transform .9s var(--ease)}
+.ngrid a:hover .m img{transform:scale(1.05)}
+.cards li{overflow:hidden}
+.cards img{transition:transform .9s var(--ease)}
+.cards li:hover img{transform:scale(1.04)}
+
+/* ---- ボタン・カード・リンクのホバー ---- */
+.btn{transition:background-color .25s,color .25s,border-color .25s,filter .25s,transform .25s var(--ease),box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(74,21,34,.18)}
+.btn:active{transform:translateY(0) scale(.98);box-shadow:none}
+.doors li,.ngrid a,.pn a,.flow li{transition:transform .3s var(--ease),box-shadow .3s}
+.doors li:hover,.ngrid a:hover,.pn a:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(74,21,34,.12)}
+.doors a,.toc a,.pager .page-numbers,.nl a,.ngrid h3,.info a,dl.kv a,.tbl dd a,.maplink{transition:background-color .25s,color .25s}
+.toc a::after{display:inline-block;transition:transform .3s var(--ease)}
+.toc a:hover::after{transform:translateY(3px)}
+.contact .tel{transition:transform .3s var(--ease),box-shadow .3s}
+.contact .tel:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+
+/* ---- よくある質問：開いたときに答えがふわっと ---- */
+.faq summary{transition:color .25s}
+.faq summary:hover{color:var(--acc)}
+.faq details[open] summary::after{display:inline-block;animation:pp-turn .35s var(--ease)}
+.faq details[open]>:not(summary){animation:pp-open .4s var(--ease)}
+
+@media(max-width:900px){
+  /* スマホの最初の画面：写真がゆっくり落ち着く（枠なしのため写真だけを拡大→等倍） */
+  .hero1 .ph,.phero .ph{overflow:hidden}
+  .hero1 .ph img,.phero .ph img{animation:pp-settle 1.8s var(--ease) both}
+  /* スマホのメニュー：項目が上から順に */
+  .drawer li,.drawer .dtel,.drawer .dinfo{opacity:0;transform:translateY(8px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+  .drawer.o li,.drawer.o .dtel,.drawer.o .dinfo{opacity:1;transform:none}
+  .drawer.o li:nth-child(2){transition-delay:.03s}.drawer.o li:nth-child(3){transition-delay:.06s}
+  .drawer.o li:nth-child(4){transition-delay:.09s}.drawer.o li:nth-child(5){transition-delay:.12s}
+  .drawer.o li:nth-child(6){transition-delay:.15s}.drawer.o li:nth-child(n+7){transition-delay:.18s}
+  .drawer.o .dtel{transition-delay:.21s}.drawer.o .dinfo{transition-delay:.24s}
+  /* 画面下のバー：下からすっと出る／押したときに少し沈む */
+  .callbar{animation:pp-bar .6s var(--ease) both .5s}
+  .callbar a{transition:transform .15s,filter .2s}
+  .callbar a:active{transform:scale(.97);filter:brightness(.92)}
+  .telbtn{transition:transform .2s}
+  .telbtn:active,.burger:active{transform:scale(.94)}
+}
+/* 指で操作する端末ではホバーで浮かせない（タップ後に浮いたまま残るため） */
+@media(hover:none){
+  .btn:hover,.doors li:hover,.ngrid a:hover,.pn a:hover,.contact .tel:hover{transform:none;box-shadow:none}
+  .tiles a:hover img,.ngrid a:hover .m img,.cards li:hover img{transform:none}
+}
+
+/* ---- 動きを減らす設定の端末では、すべて止めて普通に表示 ---- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important}
+  .drawer li,.drawer .dtel,.drawer .dinfo{opacity:1!important;transform:none!important}
+}

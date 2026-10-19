@@ -23,12 +23,25 @@
   if (!('IntersectionObserver' in window) || reduce) {
     for (var i = 0; i < els.length; i++) els[i].classList.add('in');
   } else {
+    /* 横にスクロールする列（スマホの写真の列など）は、1つ見えたら列の全部を表示する（画面の右外の項目が隠れたまま残らないように） */
+    var show = function (el) {
+      el.classList.add('in');
+      var row = el.parentElement;
+      if (row && row.scrollWidth > row.clientWidth + 1) {
+        for (var c = row.firstElementChild; c; c = c.nextElementSibling) if (c.classList.contains('rv')) c.classList.add('in');
+      }
+    };
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     for (var j = 0; j < els.length; j++) io.observe(els[j]);
+    /* 保険：観測が働かないときも、画面の近くの要素は必ず表示する／印刷では全部表示 */
+    setTimeout(function () {
+      for (var q = 0; q < els.length; q++) if (els[q].getBoundingClientRect().top < window.innerHeight * 1.1) show(els[q]);
+    }, 2500);
+    window.addEventListener('beforeprint', function () { for (var q = 0; q < els.length; q++) els[q].classList.add('in'); });
   }
 
   /* メニュー（下から出るシート） */

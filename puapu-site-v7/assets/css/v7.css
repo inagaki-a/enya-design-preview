@@ -395,6 +395,21 @@ h2.big{font-size:28px}
 .js .ready .hero-col .c3{transform:rotate(-2deg)}
 .js .ready .sticker{opacity:1;transform:rotate(-8deg)}
 
+/* 下層ページの見出し：トップと同じく、写真を貼る動き＋文字がふわっと（最後は必ず表示された状態で止まる） */
+@keyframes v7-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes v7-p1{from{opacity:0;transform:rotate(-9deg) translateY(16px)}to{opacity:1;transform:rotate(-3deg)}}
+@keyframes v7-p2{from{opacity:0;transform:rotate(12deg) translateY(16px)}to{opacity:1;transform:rotate(4deg)}}
+@keyframes v7-open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.js .ph-tx>*{animation:v7-up .7s ease both}
+.js .ph-tx>:nth-child(2){animation-delay:.08s}.js .ph-tx>:nth-child(3){animation-delay:.16s}.js .ph-tx>:nth-child(n+4){animation-delay:.26s}
+.js .ph-col .p1{animation:v7-p1 .7s cubic-bezier(.2,.8,.2,1) both .1s}
+.js .ph-col .p2{animation:v7-p2 .7s cubic-bezier(.2,.8,.2,1) both .25s}
+/* よくある質問：開いたときに答えがふわっと */
+.faq details[open]>div{animation:v7-open .35s ease}
+/* 画面下のバー・メニューボタン：押したときに少し沈む */
+.bar a,.menu-btn,.hd-tel{transition:transform .15s,filter .2s}
+.bar a:active,.menu-btn:active,.hd-tel:active{transform:scale(.96)}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important;animation:none!important}
