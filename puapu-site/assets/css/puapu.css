@@ -462,3 +462,13 @@ header.site.sc{box-shadow:0 6px 18px rgba(43,26,26,.22)}
 .lopt b{font-size:20px;color:var(--c1);letter-spacing:.04em}
 .lopt .pr{font-size:26px;font-weight:900;color:var(--acc);white-space:nowrap;line-height:1.2}
 .lopt p{grid-column:1/-1;margin:4px 0 0;font-size:14px;color:var(--mute);line-height:1.7}
+
+/* 一汁八菜ランチの価格表（メイン1種・2種・3種） */
+.lprices{list-style:none;margin:22px auto 8px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:460px}
+.lprices li{background:#fff;border:2px solid var(--gold);border-top:5px solid var(--acc);padding:12px 6px 12px;text-align:center;box-shadow:0 4px 14px rgba(74,21,34,.08)}
+.lprices b{display:block;font-size:16px;color:var(--c1);letter-spacing:.06em}
+.lprices .pr{display:block;margin-top:4px;font-size:25px;font-weight:900;color:var(--acc);line-height:1.25;white-space:nowrap}
+.lprices p{margin:6px 4px 0;font-size:11.5px;color:var(--mute);line-height:1.5}
+@media(max-width:420px){.lprices{gap:6px}.lprices .pr{font-size:20px}.lprices b{font-size:14px}.lprices p{font-size:10.5px}}
+.lpcap{margin:20px 0 -10px;font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--acc)}
+.lprices{margin-top:20px}
