@@ -454,3 +454,11 @@ header.site.sc{box-shadow:0 6px 18px rgba(43,26,26,.22)}
 .mcards p{grid-column:1/-1;font-size:13.5px;color:var(--mute);line-height:1.75}
 .mcards + .mlist{margin-top:34px}
 @media(max-width:900px){.mcards{grid-template-columns:1fr 1fr;gap:26px 14px}.mcards b{font-size:15px}.mcards p{font-size:13px}}
+
+/* 一汁八菜ランチのオプション（ダブルメインなど） */
+.lopt{list-style:none;margin:20px auto 6px;padding:0;display:grid;gap:12px;max-width:440px}
+.lopt li{position:relative;display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:2px 14px;text-align:left;background:#fff;border:2px solid var(--gold);border-left:6px solid var(--acc);padding:14px 18px 14px 16px;box-shadow:0 4px 14px rgba(74,21,34,.08)}
+.lopt .k{grid-column:1/-1;font-size:11px;font-weight:900;letter-spacing:.2em;color:var(--acc)}
+.lopt b{font-size:20px;color:var(--c1);letter-spacing:.04em}
+.lopt .pr{font-size:26px;font-weight:900;color:var(--acc);white-space:nowrap;line-height:1.2}
+.lopt p{grid-column:1/-1;margin:4px 0 0;font-size:14px;color:var(--mute);line-height:1.7}
