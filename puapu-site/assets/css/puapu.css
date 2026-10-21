@@ -444,3 +444,13 @@ header.site.sc{box-shadow:0 6px 18px rgba(43,26,26,.22)}
 .gallery.g5{grid-template-columns:repeat(5,1fr)}
 .gallery .wide{grid-column:span 2;aspect-ratio:3/2}
 @media(max-width:900px){.gallery.g5{grid-template-columns:1fr 1fr}}
+
+/* メニュー：写真つきカード */
+.mcards{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:34px 22px}
+.mcards img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--gold);padding:5px;background:#fff}
+.mcards .mc{display:grid;grid-template-columns:1fr auto;gap:2px 12px;margin-top:12px}
+.mcards b{font-size:17px;color:var(--c1);letter-spacing:.03em;line-height:1.5}
+.mcards .pr{font-weight:900;color:var(--acc);white-space:nowrap;font-size:16px}
+.mcards p{grid-column:1/-1;font-size:13.5px;color:var(--mute);line-height:1.75}
+.mcards + .mlist{margin-top:34px}
+@media(max-width:900px){.mcards{grid-template-columns:1fr 1fr;gap:26px 14px}.mcards b{font-size:15px}.mcards p{font-size:13px}}
